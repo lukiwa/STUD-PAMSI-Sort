@@ -2,7 +2,7 @@
 #include "Sort.hpp"
 
 template <typename T>
-class QuickSort : public Sort<T> {
+class MergeSort : public Sort<T> {
     using typename Sort<T>::ArrayWithSize;
 
    public:
@@ -14,6 +14,6 @@ class QuickSort : public Sort<T> {
         // TODO
         return false;
     }
-    QuickSort() = default;
-    ~QuickSort() = default;
+    MergeSort() = default;
+    ~MergeSort() = default;
 };

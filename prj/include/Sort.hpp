@@ -3,11 +3,12 @@
 
 template <typename T>
 class Sort {
-   protected:
-    virtual bool SortUp(std::tuple<std::size_t, std::unique_ptr<T[]>> tuple) = 0;
-    virtual bool SortDown(std::tuple<std::size_t, std::unique_ptr<T[]>> tuple) = 0;
-
    public:
+    using ArrayWithSize = std::tuple<std::size_t, std::unique_ptr<T[]>>;
+
+    virtual bool SortUp(ArrayWithSize& tuple, double sorting_length = 1) = 0;
+    virtual bool SortDown(ArrayWithSize& tuple, double sorting_length = 1) = 0;
+
     Sort() = default;
-    ~Sort() = default;
+    virtual ~Sort() = default;
 };
