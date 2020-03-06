@@ -11,6 +11,7 @@ template <typename T>
 class ManageSorting {
    private:
     std::unique_ptr<Sort<T>> sorting_algorithm;
+    using ArrayWithSize = std::tuple<std::size_t, std::unique_ptr<T[]>>;
 
    public:
     /**
@@ -21,19 +22,21 @@ class ManageSorting {
     void SetSortingAlgorithm(SortingAlgorithm algorithm) {
         switch (algorithm) {
             case SortingAlgorithm::QUICKSORT:
-                sorting_algorithm = std::make_unique<QuickSort<T>>();
+                //                sorting_algorithm = std::make_unique<QuickSort<T>>();
                 break;
             case SortingAlgorithm::MERGESORT:
                 sorting_algorithm = std::make_unique<MergeSort<T>>();
                 break;
             case SortingAlgorithm::INTROSORT:
-                sorting_algorithm = std::make_unique<IntroSort<T>>();
+                //               sorting_algorithm = std::make_unique<IntroSort<T>>();
                 break;
         }
     }
 
-    void RealiseSorting(std::tuple<std::size_t, std::unique_ptr<int[]>>& array) {}
+    void RealiseSorting(ArrayWithSize& array, double sorting_length = 1) {
+        sorting_algorithm->SortUp(std::get<1>(array), 0, std::get<0>(array) - 1);
+    }
 
-    ManageSorting() { sorting_algorithm = std::make_unique<QuickSort<T>>(); }
+    ManageSorting() { sorting_algorithm = std::make_unique<MergeSort<T>>(); }
     ~ManageSorting() = default;
 };

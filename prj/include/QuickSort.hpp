@@ -2,18 +2,13 @@
 #include "Sort.hpp"
 
 template <typename T>
-class QuickSort : public Sort<T> {
-    using typename Sort<T>::ArrayWithSize;
-
+class QuickSort /*: public Sort<T>*/ {
    public:
-    virtual bool SortUp(ArrayWithSize& tuple, double sorting_length = 1) override {
-        // TODO
-        return false;
-    }
-    virtual bool SortDown(ArrayWithSize& tuple, double sorting_length = 1) override {
-        // TODO
-        return false;
-    }
+    // bool SortUp(std::unique_ptr<T[]>& array, int start, int end) override {}
+
+    //  bool SortDown(std::unique_ptr<T[]> array, std::size_t size,
+    //              double sorting_length = 1) override {}
+
     QuickSort() = default;
     ~QuickSort() = default;
 };

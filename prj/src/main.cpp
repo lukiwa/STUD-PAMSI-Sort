@@ -11,16 +11,23 @@ int GetSth(std::tuple<std::size_t, std::unique_ptr<int[]>>& array, int index) {
 }
 
 int main() {
-    std::cout << "Hello Easy C++ project!" << std::endl;
     ArrayGenerator<int> generator;
-    auto tuple = generator.GenerateRandomArray(100);
-    std::cout << GetSth(tuple, 12) << std::endl;
-    std::get<1>(tuple).reset();
+    auto tuple = generator.GenerateRandomArray(10);
 
-    IntroSort<int> sorter;
     ManageSorting<int> heh;
     heh.SetSortingAlgorithm(SortingAlgorithm::MERGESORT);
+
+    for (int i = 0; i < 10; i++) {
+        std::cout << std::get<1>(tuple)[i] << " ";
+    }
+
+    std::cout << std::endl;
+
     heh.RealiseSorting(tuple);
+
+    for (int i = 0; i < 10; i++) {
+        std::cout << std::get<1>(tuple)[i] << " ";
+    }
 }
 
 // TODO w klasach sort juz zwykla tablica + rozmiar zamiast tuple

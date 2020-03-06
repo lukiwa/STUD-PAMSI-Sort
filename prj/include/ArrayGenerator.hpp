@@ -1,6 +1,7 @@
 #pragma once
 #include <memory>
 
+
 /**
  * @brief Generator tablic do sortowania
  *
@@ -23,7 +24,7 @@ class ArrayGenerator {
         auto array = std::make_unique<T[]>(size);
         // wypełnienie tablicy losowymi elementami
         for (std::size_t i = 0; i < size; ++i) {
-            array[i] = std::rand();
+            array[i] = std::rand() % 20; //FIXME zmiana do testow
         }
         return {size, std::move(array)};
     }
