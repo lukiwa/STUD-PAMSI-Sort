@@ -1,7 +1,6 @@
 #pragma once
 #include <memory>
 
-
 /**
  * @brief Generator tablic do sortowania
  *
@@ -24,9 +23,28 @@ class ArrayGenerator {
         auto array = std::make_unique<T[]>(size);
         // wypełnienie tablicy losowymi elementami
         for (std::size_t i = 0; i < size; ++i) {
-            array[i] = std::rand() % 20; //FIXME zmiana do testow
+            array[i] = std::rand();
         }
         return {size, std::move(array)};
+    }
+
+    /**
+     * @brief Generowanie tablicy testowej o dlugosci 10, z elementami od 0 do 100
+     *
+     * @return std::tuple<std::size_t, std::unique_ptr<T[]>> para, gdzie 1 wartość oznacza rozmiar
+     * stworzonej tablicy, a 2 jest tablicą
+     */
+    std::tuple<std::size_t, std::unique_ptr<T[]>> GenerateDemoArray() {
+        srand(time(0));
+        const int demo_array_size = 10;
+        const int demo_array_max = 100;
+
+        auto array = std::make_unique<T[]>(demo_array_size);
+        // wypełnienie tablicy losowymi elementami
+        for (std::size_t i = 0; i < demo_array_size; ++i) {
+            array[i] = std::rand() % demo_array_max;
+        }
+        return {demo_array_size, std::move(array)};
     }
 
     /**

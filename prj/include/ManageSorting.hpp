@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <memory>
+#include <string>
 #include "IntroSort.hpp"
 #include "MergeSort.hpp"
 #include "QuickSort.hpp"
@@ -11,7 +12,19 @@ template <typename T>
 class ManageSorting {
    private:
     std::unique_ptr<Sort<T>> sorting_algorithm;
+    std::string algorithm_name;
     using ArrayWithSize = std::tuple<std::size_t, std::unique_ptr<T[]>>;
+
+    /**
+     * @brief Wyswietla tablice
+     *
+     * @param arr tablica do wyswietlenia
+     */
+    void DisplayArray(ArrayWithSize& arr) {
+        for (std::size_t i = 0; i < std::get<0>(arr); ++i) {
+            std::cout << std::get<1>(arr)[i] << " ";
+        }
+    }
 
    public:
     /**
@@ -23,18 +36,62 @@ class ManageSorting {
         switch (algorithm) {
             case SortingAlgorithm::QUICKSORT:
                 //                sorting_algorithm = std::make_unique<QuickSort<T>>();
+                // algorithm_name = "Quick Sort";
                 break;
             case SortingAlgorithm::MERGESORT:
                 sorting_algorithm = std::make_unique<MergeSort<T>>();
+                algorithm_name = "Merge Sort";
                 break;
             case SortingAlgorithm::INTROSORT:
                 //               sorting_algorithm = std::make_unique<IntroSort<T>>();
+                // algorithm_name = "Intro Sort";
                 break;
         }
     }
 
     void RealiseSorting(ArrayWithSize& array, double sorting_length = 1) {
-        sorting_algorithm->SortUp(std::get<1>(array), 0, std::get<0>(array) - 1);
+        // ostatni do ktorego bedzie przeprowadzone sortowanie
+        int last_index = (std::get<0>(array) - 1) * sorting_length;
+
+        sorting_algorithm->SortUp(std::get<1>(array), 0, last_index);
+    }
+
+    /**
+     * @brief Sortowanie testowe - wyswietla tablice przed i po sortowaniu
+     *
+     */
+    void RealiseDemoSorting() {
+        ArrayGenerator<int> generator;
+
+        auto arr = generator.GenerateDemoArray();
+        SetSortingAlgorithm(SortingAlgorithm::MERGESORT);
+        std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
+                  << "Tablica przed sortowaniem: ";
+        DisplayArray(arr);
+        sorting_algorithm->SortUp(std::get<1>(arr), 0, std::get<0>(arr) - 1);
+        std::cout << std::endl << "Tablica po sortowaniu: ";
+        DisplayArray(arr);
+        std::cout << std::endl << std::endl;
+
+        arr = generator.GenerateDemoArray();
+        SetSortingAlgorithm(SortingAlgorithm::QUICKSORT);
+        std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
+                  << "Tablica przed sortowaniem: ";
+        DisplayArray(arr);
+        sorting_algorithm->SortUp(std::get<1>(arr), 0, std::get<0>(arr) - 1);
+        std::cout << std::endl << "Tablica po sortowaniu: ";
+        DisplayArray(arr);
+        std::cout << std::endl << std::endl;
+
+        arr = generator.GenerateDemoArray();
+        SetSortingAlgorithm(SortingAlgorithm::INTROSORT);
+        std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
+                  << "Tablica przed sortowaniem: ";
+        DisplayArray(arr);
+        sorting_algorithm->SortUp(std::get<1>(arr), 0, std::get<0>(arr) - 1);
+        std::cout << std::endl << "Tablica po sortowaniu: ";
+        DisplayArray(arr);
+        std::cout << std::endl;
     }
 
     ManageSorting() { sorting_algorithm = std::make_unique<MergeSort<T>>(); }

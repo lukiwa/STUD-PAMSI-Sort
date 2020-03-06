@@ -16,18 +16,21 @@ int main() {
 
     ManageSorting<int> heh;
     heh.SetSortingAlgorithm(SortingAlgorithm::MERGESORT);
+    /*
+        for (int i = 0; i < 10; i++) {
+            std::cout << std::get<1>(tuple)[i] << " ";
+        }
 
-    for (int i = 0; i < 10; i++) {
-        std::cout << std::get<1>(tuple)[i] << " ";
-    }
+        std::cout << std::endl;
 
-    std::cout << std::endl;
+        heh.RealiseSorting(tuple, 0.5);
 
-    heh.RealiseSorting(tuple);
+        for (int i = 0; i < 10; i++) {
+            std::cout << std::get<1>(tuple)[i] << " ";
+        }
+        */
 
-    for (int i = 0; i < 10; i++) {
-        std::cout << std::get<1>(tuple)[i] << " ";
-    }
+    heh.RealiseDemoSorting();
 }
 
 // TODO w klasach sort juz zwykla tablica + rozmiar zamiast tuple

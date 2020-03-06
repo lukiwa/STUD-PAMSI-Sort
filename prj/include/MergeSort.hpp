@@ -1,58 +1,75 @@
 #pragma once
 #include "Sort.hpp"
 
+/**
+ * @brief Klasa umozliwia sortowanie przez scalanie
+ *
+ * @tparam T tablica zawiera podany typ
+ */
 template <typename T>
 class MergeSort : public Sort<T> {
    private:
+    /**
+     * @brief Laczenie tablic
+     *
+     * @param array tablica
+     * @param start indeks poczatkowyc
+     * @param mid srodek (punkt podzialu)
+     * @param end indeks koncowy sortowania
+     */
     void Merge(std::unique_ptr<T[]>& array, int start, int mid, int end) {
-        /*
-        int temp_arr[end - start + 1];
-        std::cout << end - start + 1 << std::endl;
+        int first_half_size = mid - start + 1;  // dlugosc pierwszej tablicy
+        int second_half_size = end - mid;       // dlugosc drugiej tablicy
 
-        int i = start, t = 0, j = mid + 1;
+        auto first_half = std::make_unique<int[]>(first_half_size);
+        auto second_half = std::make_unique<int[]>(second_half_size);
 
-        while (i <= mid && j <= end) {
-            if (array[i] < array[j]) {
-                temp_arr[t] = array[i];
-                ++i;
-            } else {
-                temp_arr[t] = array[j];
-                ++j;
-            }
-            ++t;
-        }
-
-        while (i <= mid) {
-            temp_arr[t] = array[i];
-            ++t;
-            ++i;
-        }
-
-        while (j < end) {
-            temp_arr[t] = array[j];
-            ++t;
-            ++j;
-        }
-
-        for (int i = start; i <= end; ++i) {
-            array[i] = temp_arr[i];
-        }
-        */
-        int first_half_size = mid - start + 1;
-        int second_half_size = end - mid;
-
-        int first_half[first_half_size];
-        int second_half[second_half_size];
-
+        // przepisanie 1 polowy tablicy
         for (int i = 0; i < first_half_size; ++i) {
-            
+            first_half[i] = array[start + i];
         }
+
+        // przepisanie 2 polowy tablicy
         for (int i = 0; i < second_half_size; ++i) {
-            /* code */
+            second_half[i] = array[mid + 1 + i];
+        }
+
+        int i = 0;      // iterator dla pierwszej (lewej) czesci tablicy
+        int j = 0;      // iterator dla drugiej (prawej) czesci tablicy
+        int k = start;  // iterator dla polaczanej tablicy
+        while (i < first_half_size && j < second_half_size) {
+            if (first_half[i] <= second_half[j]) {
+                array[k] = first_half[i];
+                i++;
+            } else {
+                array[k] = second_half[j];
+                j++;
+            }
+            k++;
+        }
+
+        // laczenie tablic
+        while (i < first_half_size) {
+            array[k] = first_half[i];
+            i++;
+            k++;
+        }
+
+        while (j < second_half_size) {
+            array[k] = second_half[j];
+            j++;
+            k++;
         }
     }
 
    public:
+    /**
+     * @brief Sortowanie przez scalanie
+     *
+     * @param array tablica zawierajaca elementy
+     * @param start indeks poczatkowy(moment poczatku sortowania)
+     * @param end indeks koncowy(do ktorego momentu sortowanie)
+     */
     void SortUp(std::unique_ptr<T[]>& array, int start, int end) override {
         if (start < end) {
             int mid = (start + end) / 2;
