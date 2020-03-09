@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include "MergeSort.hpp"
 
 /**
  * @brief Generator tablic do sortowania
@@ -18,12 +19,12 @@ class ArrayGenerator {
      * @return std::tuple<std::size_t, std::unique_ptr<T[]>> para, gdzie 1 wartość oznacza rozmiar
      * stworzonej tablicy, a 2 jest tablicą
      */
-    std::tuple<std::size_t, std::unique_ptr<T[]>> GenerateRandomArray(std::size_t size) {
+    static std::tuple<std::size_t, std::unique_ptr<T[]>> GenerateRandomArray(std::size_t size) {
         srand(time(0));
         auto array = std::make_unique<T[]>(size);
         // wypełnienie tablicy losowymi elementami
         for (std::size_t i = 0; i < size; ++i) {
-            array[i] = std::rand();
+            array[i] = std::rand() % 100;  //FIXME 
         }
         return {size, std::move(array)};
     }
@@ -34,7 +35,7 @@ class ArrayGenerator {
      * @return std::tuple<std::size_t, std::unique_ptr<T[]>> para, gdzie 1 wartość oznacza rozmiar
      * stworzonej tablicy, a 2 jest tablicą
      */
-    std::tuple<std::size_t, std::unique_ptr<T[]>> GenerateDemoArray() {
+    static std::tuple<std::size_t, std::unique_ptr<T[]>> GenerateDemoArray() {
         srand(time(0));
         const int demo_array_size = 10;
         const int demo_array_max = 100;
@@ -55,9 +56,21 @@ class ArrayGenerator {
      * @return std::tuple<std::size_t, std::unique_ptr<T[]>> para, gdzie 1 wartość oznacza rozmiar
      * stworzonej tablicy, a 2 jest tablicą
      */
-    std::tuple<std::size_t, std::unique_ptr<T[]>> GeneratePartiallySortedArray(
+    static std::tuple<std::size_t, std::unique_ptr<T[]>> GeneratePartiallySortedArray(
         std::size_t size, double already_sorted) {
-        // TODO
+        MergeSort<T> sorter;
+
+        srand(time(0));
+        auto array = std::make_unique<T[]>(size);
+        // wypełnienie tablicy losowymi elementami
+        for (std::size_t i = 0; i < size; ++i) {
+            array[i] = std::rand() % 100;
+        }
+        std::size_t last_index = (size - 1) * already_sorted;
+        std::cout << last_index << std::endl;
+        sorter.SortUp(array, 0, last_index);
+
+        return {size, std::move(array)};
     }
 
     /**
@@ -66,7 +79,8 @@ class ArrayGenerator {
      * @param size rozmiar tablicy
      * @return std::tuple<std::size_t, std::unique_ptr<T[]>>
      */
-    std::tuple<std::size_t, std::unique_ptr<T[]>> GenerateReverseSortedArray(std::size_t size) {
+    static std::tuple<std::size_t, std::unique_ptr<T[]>> GenerateReverseSortedArray(
+        std::size_t size) {
         // TODO
     }
 };

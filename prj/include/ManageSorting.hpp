@@ -50,7 +50,7 @@ class ManageSorting {
     }
 
     void RealiseSorting(ArrayWithSize& array, double sorting_length = 1) {
-        // ostatni do ktorego bedzie przeprowadzone sortowanie
+        // ostatni indeks, do ktorego bedzie przeprowadzone sortowaniej
         int last_index = (std::get<0>(array) - 1) * sorting_length;
 
         sorting_algorithm->SortUp(std::get<1>(array), 0, last_index);
@@ -61,36 +61,34 @@ class ManageSorting {
      *
      */
     void RealiseDemoSorting() {
-        ArrayGenerator<int> generator;
-
-        auto arr = generator.GenerateDemoArray();
+        auto array = ArrayGenerator<int>::GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::MERGESORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
                   << "Tablica przed sortowaniem: ";
-        DisplayArray(arr);
-        sorting_algorithm->SortUp(std::get<1>(arr), 0, std::get<0>(arr) - 1);
+        DisplayArray(array);
+        sorting_algorithm->SortUp(std::get<1>(array), 0, std::get<0>(array) - 1);
         std::cout << std::endl << "Tablica po sortowaniu: ";
-        DisplayArray(arr);
+        DisplayArray(array);
         std::cout << std::endl << std::endl;
 
-        arr = generator.GenerateDemoArray();
+        array = ArrayGenerator<int>::GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::QUICKSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
                   << "Tablica przed sortowaniem: ";
-        DisplayArray(arr);
-        sorting_algorithm->SortUp(std::get<1>(arr), 0, std::get<0>(arr) - 1);
+        DisplayArray(array);
+        sorting_algorithm->SortUp(std::get<1>(array), 0, std::get<0>(array) - 1);
         std::cout << std::endl << "Tablica po sortowaniu: ";
-        DisplayArray(arr);
+        DisplayArray(array);
         std::cout << std::endl << std::endl;
 
-        arr = generator.GenerateDemoArray();
+        array = ArrayGenerator<int>::GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::INTROSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
                   << "Tablica przed sortowaniem: ";
-        DisplayArray(arr);
-        sorting_algorithm->SortUp(std::get<1>(arr), 0, std::get<0>(arr) - 1);
+        DisplayArray(array);
+        sorting_algorithm->SortUp(std::get<1>(array), 0, std::get<0>(array) - 1);
         std::cout << std::endl << "Tablica po sortowaniu: ";
-        DisplayArray(arr);
+        DisplayArray(array);
         std::cout << std::endl;
     }
 

@@ -11,26 +11,27 @@ int GetSth(std::tuple<std::size_t, std::unique_ptr<int[]>>& array, int index) {
 }
 
 int main() {
-    ArrayGenerator<int> generator;
-    auto tuple = generator.GenerateRandomArray(10);
+     auto partial = ArrayGenerator<int>::GenerateRandomArray(10);
+    //auto partial = ArrayGenerator<int>::GeneratePartiallySortedArray(10, 0);
 
     ManageSorting<int> heh;
+    // MergeSort<int> msort;
     heh.SetSortingAlgorithm(SortingAlgorithm::MERGESORT);
-    /*
-        for (int i = 0; i < 10; i++) {
-            std::cout << std::get<1>(tuple)[i] << " ";
-        }
 
-        std::cout << std::endl;
+    for (std::size_t i = 0; i < std::get<0>(partial); i++) {
+        std::cout << std::get<1>(partial)[i] << " ";
+    }
 
-        heh.RealiseSorting(tuple, 0.5);
+    std::cout << std::endl;
 
-        for (int i = 0; i < 10; i++) {
-            std::cout << std::get<1>(tuple)[i] << " ";
-        }
-        */
+    heh.RealiseSorting(partial);
+    // msort.SortUp(std::get<1>(partial), 0, 8);
 
-    heh.RealiseDemoSorting();
+    for (std::size_t i = 0; i < std::get<0>(partial); i++) {
+        std::cout << std::get<1>(partial)[i] << " ";
+    }
+
+    // heh.RealiseDemoSorting();
 }
 
 // TODO w klasach sort juz zwykla tablica + rozmiar zamiast tuple
