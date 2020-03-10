@@ -35,8 +35,8 @@ class ManageSorting {
     void SetSortingAlgorithm(SortingAlgorithm algorithm) {
         switch (algorithm) {
             case SortingAlgorithm::QUICKSORT:
-                //                sorting_algorithm = std::make_unique<QuickSort<T>>();
-                // algorithm_name = "Quick Sort";
+                sorting_algorithm = std::make_unique<QuickSort<T>>();
+                algorithm_name = "Quick Sort";
                 break;
             case SortingAlgorithm::MERGESORT:
                 sorting_algorithm = std::make_unique<MergeSort<T>>();
@@ -52,6 +52,7 @@ class ManageSorting {
     void RealiseSorting(ArrayWithSize& array, double sorting_length = 1) {
         // ostatni indeks, do ktorego bedzie przeprowadzone sortowaniej
         int last_index = (std::get<0>(array) - 1) * sorting_length;
+        std::cout << last_index << std::endl;
 
         sorting_algorithm->SortUp(std::get<1>(array), 0, last_index);
     }

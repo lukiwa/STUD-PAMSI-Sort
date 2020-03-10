@@ -18,16 +18,11 @@ class MergeSort : public Sort<T> {
      * @param end indeks koncowy sortowania
      */
     void MergeUp(std::unique_ptr<T[]>& array, std::size_t start, std::size_t mid, std::size_t end) {
-        std::size_t first_half_size = mid - start + 1;  // dlugosc pierwszej tablicy
-        std::size_t second_half_size = end - mid;       // dlugosc drugiej tablicy
+        const std::size_t first_half_size = mid - start + 1;  // dlugosc pierwszej tablicy
+        const std::size_t second_half_size = end - mid;       // dlugosc drugiej tablicy
 
-        // FIXME
-        /*
-                auto first_half = std::make_unique<int[]>(first_half_size);
-                auto second_half = std::make_unique<int[]>(second_half_size);
-        */
-        int* first_half = new int[first_half_size];
-        int* second_half = new int[second_half_size];
+        T* first_half = new T[first_half_size];
+        T* second_half = new T[second_half_size];
         // przepisanie 1 polowy tablicy
         for (std::size_t i = 0; i < first_half_size; ++i) {
             first_half[i] = array[start + i];
@@ -81,13 +76,8 @@ class MergeSort : public Sort<T> {
         std::size_t first_half_size = mid - start + 1;  // dlugosc pierwszej tablicy
         std::size_t second_half_size = end - mid;       // dlugosc drugiej tablicy
 
-        // FIXME
-        /*
-                auto first_half = std::make_unique<int[]>(first_half_size);
-                auto second_half = std::make_unique<int[]>(second_half_size);
-        */
-        int* first_half = new int[first_half_size];
-        int* second_half = new int[second_half_size];
+        T* first_half = new T[first_half_size];
+        T* second_half = new T[second_half_size];
         // przepisanie 1 polowy tablicy
         for (std::size_t i = 0; i < first_half_size; ++i) {
             first_half[i] = array[start + i];

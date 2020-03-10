@@ -12,7 +12,7 @@ class ArrayGenerator {
    public:
     ArrayGenerator() = default;
     ~ArrayGenerator() = default;
-   
+
     /**
      * @brief Generuje tablice danego typu o danym rozmiarze
      *        Jeżeli ma zostać wstepnie posortowana, to dzieje
@@ -31,7 +31,7 @@ class ArrayGenerator {
         auto array = std::make_unique<T[]>(size);
         // wypełnienie tablicy losowymi elementami
         for (std::size_t i = 0; i < size; ++i) {
-            array[i] = std::rand() % 100;
+            array[i] = std::rand() % 100;  // FIXME
         }
         // jezeli tablica ma byc wstepnie posortowana
         if (already_sorted > 0) {

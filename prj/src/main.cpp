@@ -11,7 +11,7 @@ int main() {
 
     ManageSorting<int> heh;
     //    MergeSort<int> msort;
-    // heh.SetSortingAlgorithm(SortingAlgorithm::MERGESORT);
+    heh.SetSortingAlgorithm(SortingAlgorithm::QUICKSORT);
 
     for (std::size_t i = 0; i < std::get<0>(partial); i++) {
         std::cout << std::get<1>(partial)[i] << " ";

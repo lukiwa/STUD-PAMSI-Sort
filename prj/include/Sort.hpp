@@ -1,6 +1,18 @@
 #pragma once
 #include <memory>
 
+/**
+ * @brief Makro które "wycisza" ostrzezenia kompilatora o nieuzywanej zmiennej w sytuacjach
+ *        w ktorych nie chce danej zmiennej uzywac np. nie implementuje sortowania malejacego
+ *        dla quicksort
+ *
+ */
+#define UNUSED(expr)  \
+    do {              \
+        (void)(expr); \
+    } while (0)
+
+
 template <typename T>
 class Sort {
    public:
