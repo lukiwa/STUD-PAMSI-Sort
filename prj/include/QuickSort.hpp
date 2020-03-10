@@ -4,24 +4,23 @@
 template <typename T>
 class QuickSort : public Sort<T> {
    public:
-
-   /**
-    * @brief Sortowanie szybkie 
-    * 
-    * @param array tablica ktora ma byc posortowana
-    * @param start poczatek sortowania
-    * @param end koniec sortowania
-    */
+    /**
+     * @brief Sortowanie szybkie
+     *
+     * @param array tablica ktora ma byc posortowana
+     * @param start poczatek sortowania
+     * @param end koniec sortowania
+     */
     void SortUp(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end) override {
         std::size_t i = start;
         std::size_t j = end;
         T pivot = array[(start + end) / 2];
 
         do {
-            while (array[i] < pivot) {
+            while (i <= j && array[i] < pivot) {
                 ++i;
             }
-            while (array[j] > pivot) {
+            while (i <= j && array[j] > pivot) {
                 --j;
             }
             if (i <= j) {

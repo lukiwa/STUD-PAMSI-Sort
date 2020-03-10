@@ -62,7 +62,7 @@ class ManageSorting {
      *
      */
     void RealiseDemoSorting() {
-        auto array = ArrayGenerator<int>::GenerateDemoArray();
+        auto array = ArrayGenerator<T>::GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::MERGESORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
                   << "Tablica przed sortowaniem: ";
@@ -72,7 +72,7 @@ class ManageSorting {
         DisplayArray(array);
         std::cout << std::endl << std::endl;
 
-        array = ArrayGenerator<int>::GenerateDemoArray();
+        array = ArrayGenerator<T>::GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::QUICKSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
                   << "Tablica przed sortowaniem: ";
@@ -82,7 +82,7 @@ class ManageSorting {
         DisplayArray(array);
         std::cout << std::endl << std::endl;
 
-        array = ArrayGenerator<int>::GenerateDemoArray();
+        array = ArrayGenerator<T>::GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::INTROSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
                   << "Tablica przed sortowaniem: ";

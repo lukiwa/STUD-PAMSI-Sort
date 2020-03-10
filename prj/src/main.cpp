@@ -6,10 +6,12 @@
 #include "QuickSort.hpp"
 
 int main() {
+    ManageSorting<int> heh;
+
+    /*
     auto partial = ArrayGenerator<int>::GenerateRandomArray(10);
     // auto partial = ArrayGenerator<int>::GenerateReverseSortedArray(10);
 
-    ManageSorting<int> heh;
     //    MergeSort<int> msort;
     heh.SetSortingAlgorithm(SortingAlgorithm::QUICKSORT);
 
@@ -25,8 +27,8 @@ int main() {
     for (std::size_t i = 0; i < std::get<0>(partial); i++) {
         std::cout << std::get<1>(partial)[i] << " ";
     }
-
-    // heh.RealiseDemoSorting();
+*/
+    heh.RealiseDemoSorting();
 }
 
 // TODO w klasach sort juz zwykla tablica + rozmiar zamiast tuple
