@@ -5,18 +5,13 @@
 #include "ManageSorting.hpp"
 #include "QuickSort.hpp"
 
-// NOTE testy
-int GetSth(std::tuple<std::size_t, std::unique_ptr<int[]>>& array, int index) {
-    return std::get<1>(array)[index];
-}
-
 int main() {
-     auto partial = ArrayGenerator<int>::GenerateRandomArray(10);
-    //auto partial = ArrayGenerator<int>::GeneratePartiallySortedArray(10, 0);
+    auto partial = ArrayGenerator<int>::GenerateRandomArray(10);
+    // auto partial = ArrayGenerator<int>::GenerateReverseSortedArray(10);
 
     ManageSorting<int> heh;
-    // MergeSort<int> msort;
-    heh.SetSortingAlgorithm(SortingAlgorithm::MERGESORT);
+    //    MergeSort<int> msort;
+    // heh.SetSortingAlgorithm(SortingAlgorithm::MERGESORT);
 
     for (std::size_t i = 0; i < std::get<0>(partial); i++) {
         std::cout << std::get<1>(partial)[i] << " ";

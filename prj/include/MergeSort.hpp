@@ -64,6 +64,8 @@ class MergeSort : public Sort<T> {
             j++;
             k++;
         }
+        delete[] first_half;
+        delete[] second_half;
     }
 
     /**
