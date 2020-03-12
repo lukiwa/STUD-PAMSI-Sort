@@ -6,6 +6,7 @@
 #include "QuickSort.hpp"
 
 int main() {
+    srand(time(0));
     ManageSorting<int> heh;
 
     /*

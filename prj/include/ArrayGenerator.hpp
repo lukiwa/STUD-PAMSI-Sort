@@ -1,4 +1,5 @@
 #pragma once
+#include <time.h>
 #include <memory>
 #include "MergeSort.hpp"
 
@@ -25,9 +26,9 @@ class ArrayGenerator {
      */
     static std::tuple<std::size_t, std::unique_ptr<T[]>> GenerateRandomArray(
         std::size_t size, double already_sorted = 0) {
+        srand(time(0));
         MergeSort<T> sorter;
 
-        srand(time(0));
         auto array = std::make_unique<T[]>(size);
         // wypełnienie tablicy losowymi elementami
         for (std::size_t i = 0; i < size; ++i) {
@@ -50,7 +51,7 @@ class ArrayGenerator {
      * stworzonej tablicy, a 2 jest tablicą
      */
     static std::tuple<std::size_t, std::unique_ptr<T[]>> GenerateDemoArray() {
-        srand(time(0));
+        
         const int demo_array_size = 10;
         const int demo_array_max = 100;
 
