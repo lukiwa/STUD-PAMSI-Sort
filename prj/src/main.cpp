@@ -9,27 +9,11 @@ int main() {
     srand(time(0));
     ManageSorting<int> heh;
 
-    /*
-    auto partial = ArrayGenerator<int>::GenerateRandomArray(10);
-    // auto partial = ArrayGenerator<int>::GenerateReverseSortedArray(10);
-
-    //    MergeSort<int> msort;
-    heh.SetSortingAlgorithm(SortingAlgorithm::QUICKSORT);
-
-    for (std::size_t i = 0; i < std::get<0>(partial); i++) {
-        std::cout << std::get<1>(partial)[i] << " ";
-    }
-
-    std::cout << std::endl;
-
+    auto partial = ArrayGenerator<int>::GenerateRandomArray(1000000);
+    heh.SetSortingAlgorithm(SortingAlgorithm::INTROSORT);
     heh.RealiseSorting(partial);
-    // msort.SortUp(std::get<1>(partial), 0, 8);
 
-    for (std::size_t i = 0; i < std::get<0>(partial); i++) {
-        std::cout << std::get<1>(partial)[i] << " ";
-    }
-*/
-    heh.RealiseDemoSorting();
+    // heh.RealiseDemoSorting();
 }
 
 // TODO w klasach sort juz zwykla tablica + rozmiar zamiast tuple

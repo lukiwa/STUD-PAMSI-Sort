@@ -7,6 +7,7 @@
 #include "QuickSort.hpp"
 
 enum class SortingAlgorithm { QUICKSORT, MERGESORT, INTROSORT };
+enum class SortingWay { ASCENDING, DESCENDING };
 
 template <typename T>
 class ManageSorting {
@@ -20,10 +21,39 @@ class ManageSorting {
      *
      * @param arr tablica do wyswietlenia
      */
-    void DisplayArray(ArrayWithSize& arr) {
-        for (std::size_t i = 0; i < std::get<0>(arr); ++i) {
-            std::cout << std::get<1>(arr)[i] << " ";
+    void DisplayArray(const ArrayWithSize& array) {
+        for (std::size_t i = 0; i < std::get<0>(array); ++i) {
+            std::cout << std::get<1>(array)[i] << " ";
         }
+    }
+    /** REVIEW czu sorting way potrzebne??
+     * @brief Sprawdza poprawnnosc posortowania tablicy
+     *
+     * @param array tablica ktora powinna byc posortowana
+     * @param sorting_way kierunek sortowania (rosnoca, malejaca)
+     * @return true jezeli tablica jest posortowana
+     * @return false jezeli tablica jest nieposortowana
+     */
+    bool SortingCheck(const ArrayWithSize& array, SortingWay sorting_way = SortingWay::ASCENDING) {
+        switch (sorting_way) {
+            case SortingWay::ASCENDING:
+                for (std::size_t i = 0; i < std::get<0>(array); ++i) {
+                    if (std::get<1>(array)[i] > std::get<1>(array)[i]) {
+                        return false;
+                    }
+                }
+                break;
+
+            case SortingWay::DESCENDING:
+                for (std::size_t i = 0; i < std::get<0>(array); ++i) {
+                    if (std::get<1>(array)[i] < std::get<1>(array)[i]) {
+                        return false;
+                    }
+                }
+                break;
+        }
+
+        return true;
     }
 
    public:
@@ -43,22 +73,35 @@ class ManageSorting {
                 algorithm_name = "Merge Sort";
                 break;
             case SortingAlgorithm::INTROSORT:
-                //               sorting_algorithm = std::make_unique<IntroSort<T>>();
-                // algorithm_name = "Intro Sort";
+                sorting_algorithm = std::make_unique<IntroSort<T>>();
+                algorithm_name = "Intro Sort";
                 break;
         }
     }
 
-    void RealiseSorting(ArrayWithSize& array, double sorting_length = 1) {
-        // ostatni indeks, do ktorego bedzie przeprowadzone sortowaniej
-        int last_index = (std::get<0>(array) - 1) * sorting_length;
-        std::cout << last_index << std::endl;
-
-        sorting_algorithm->SortUp(std::get<1>(array), 0, last_index);
+    /**
+     * @brief Realizuje zadanie sortowania przez wybrany wczesniej algorytm
+     *
+     * @param array tablica do posortowania
+     * @param sorting_way kierunek sortowania - rosnaco lub malejaco
+     */
+    void RealiseSorting(ArrayWithSize& array, SortingWay sorting_way = SortingWay::ASCENDING) {
+        bool is_sorted = 0;
+        switch (sorting_way) {
+            case SortingWay::ASCENDING:
+                sorting_algorithm->SortUp(std::get<1>(array), 0, std::get<0>(array) - 1);
+                is_sorted = SortingCheck(array, SortingWay::ASCENDING);
+                break;
+            case SortingWay::DESCENDING:
+                sorting_algorithm->SortDown(std::get<1>(array), 0, std::get<0>(array) - 1);
+                is_sorted = SortingCheck(array, SortingWay::DESCENDING);
+                break;
+        }
     }
 
     /**
-     * @brief Sortowanie testowe - wyswietla tablice przed i po sortowaniu
+     * @brief Sortowanie testowe - wyswietla tablice przed i po sortowaniu dla
+     *        wszystkich typów algorytmu - sortowanie rosnace
      *
      */
     void RealiseDemoSorting() {
@@ -93,6 +136,8 @@ class ManageSorting {
         std::cout << std::endl;
     }
 
-    ManageSorting() { sorting_algorithm = std::make_unique<MergeSort<T>>(); }
+    ManageSorting() {
+        sorting_algorithm = std::make_unique<MergeSort<T>>();  // domyslny algorytm sortowania
+    }
     ~ManageSorting() = default;
 };

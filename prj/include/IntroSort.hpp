@@ -1,13 +1,30 @@
 #pragma once
-#include "Sort.hpp"
+#include "MergeSort.hpp"
+#include "QuickSort.hpp"
 
 template <typename T>
-class IntroSort /*: public Sort<T>*/ {
-   public:
-    // void SortUp(std::unique_ptr<T[]>& array, int start, int end) override { return false; }
+class IntroSort : public QuickSort<T> {
+    MergeSort<T> sort;
 
-    // bool SortDown(std::unique_ptr<T[]> array, std::size_t size,
-    //             double sorting_length = 1) override {}
+   public:
+    /**
+     * @brief Sortowanie introspektywne - quicksort + mergesort
+     *
+     * @param array tablica ktora ma byc posortowana
+     * @param start poczatek sortowania
+     * @param end koniec sortowania
+     */
+    void SortUp(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end) override {
+        if (end <= 10) {
+            sort.SortUp(array, start, end);
+            return;
+        }
+        if (start < end) {
+            std::size_t mid = this->Split(array, start, end);
+            SortUp(array, start, mid);
+            SortUp(array, mid + 1, end);
+        }
+    }
 
     IntroSort() = default;
     ~IntroSort() = default;

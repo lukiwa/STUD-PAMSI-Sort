@@ -27,7 +27,7 @@ class ArrayGenerator {
     static std::tuple<std::size_t, std::unique_ptr<T[]>> GenerateRandomArray(
         std::size_t size, double already_sorted = 0) {
         srand(time(0));
-        MergeSort<T> sorter;
+        MergeSort<T> sort;
 
         auto array = std::make_unique<T[]>(size);
         // wypełnienie tablicy losowymi elementami
@@ -37,8 +37,7 @@ class ArrayGenerator {
         // jezeli tablica ma byc wstepnie posortowana
         if (already_sorted > 0) {
             std::size_t last_index = (size - 1) * already_sorted;
-            std::cout << last_index << std::endl;
-            sorter.SortUp(array, 0, last_index);
+            sort.SortUp(array, 0, last_index);
         }
 
         return {size, std::move(array)};
@@ -51,8 +50,7 @@ class ArrayGenerator {
      * stworzonej tablicy, a 2 jest tablicą
      */
     static std::tuple<std::size_t, std::unique_ptr<T[]>> GenerateDemoArray() {
-        
-        const int demo_array_size = 10;
+        const int demo_array_size = 15;
         const int demo_array_max = 100;
 
         auto array = std::make_unique<T[]>(demo_array_size);
