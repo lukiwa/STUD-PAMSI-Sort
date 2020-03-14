@@ -32,7 +32,7 @@ class ArrayGenerator {
         auto array = std::make_unique<T[]>(size);
         // wypełnienie tablicy losowymi elementami
         for (std::size_t i = 0; i < size; ++i) {
-            array[i] = std::rand() % 100;  // FIXME
+            array[i] = std::rand();
         }
         // jezeli tablica ma byc wstepnie posortowana
         if (already_sorted > 0) {
@@ -72,7 +72,6 @@ class ArrayGenerator {
         std::size_t size) {
         MergeSort<T> sorter;
 
-        srand(time(0));
         auto array = std::make_unique<T[]>(size);
         // wypełnienie tablicy losowymi elementami
         for (std::size_t i = 0; i < size; ++i) {
