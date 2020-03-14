@@ -1,4 +1,5 @@
 #pragma once
+#include <chrono>
 #include <iostream>
 #include <memory>
 #include <string>
@@ -66,37 +67,34 @@ class ManageSorting {
         switch (algorithm) {
             case SortingAlgorithm::QUICKSORT:
                 sorting_algorithm = std::make_unique<QuickSort<T>>();
-                algorithm_name = "Quick Sort";
+                algorithm_name = "QuickSort";
                 break;
             case SortingAlgorithm::MERGESORT:
                 sorting_algorithm = std::make_unique<MergeSort<T>>();
-                algorithm_name = "Merge Sort";
+                algorithm_name = "MergeSort";
                 break;
             case SortingAlgorithm::INTROSORT:
                 sorting_algorithm = std::make_unique<IntroSort<T>>();
-                algorithm_name = "Intro Sort";
+                algorithm_name = "IntroSort";
                 break;
         }
     }
 
     /**
-     * @brief Realizuje zadanie sortowania przez wybrany wczesniej algorytm
+     * @brief Realizuje zadanie sortowania (TYLKO W GORE!) przez wybrany wczensiej algorytm
      *
      * @param array tablica do posortowania
-     * @param sorting_way kierunek sortowania - rosnaco lub malejaco
+     * @return double czas sortowania w ms - jeżeli sortowanie sie nie powiodło zwraca 9999
      */
-    void RealiseSorting(ArrayWithSize& array, SortingWay sorting_way = SortingWay::ASCENDING) {
-        bool is_sorted = 0;
-        switch (sorting_way) {
-            case SortingWay::ASCENDING:
-                sorting_algorithm->SortUp(std::get<1>(array), 0, std::get<0>(array) - 1);
-                is_sorted = SortingCheck(array, SortingWay::ASCENDING);
-                break;
-            case SortingWay::DESCENDING:
-                sorting_algorithm->SortDown(std::get<1>(array), 0, std::get<0>(array) - 1);
-                is_sorted = SortingCheck(array, SortingWay::DESCENDING);
-                break;
+    double RealiseSorting(ArrayWithSize& array) {
+        auto start = std::chrono::steady_clock::now();
+        sorting_algorithm->SortUp(std::get<1>(array), 0, std::get<0>(array) - 1);
+        auto end = std::chrono::steady_clock::now();
+
+        if (SortingCheck(array, SortingWay::ASCENDING)) {
+            return std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
         }
+        return 9999;
     }
 
     /**
@@ -135,6 +133,13 @@ class ManageSorting {
         DisplayArray(array);
         std::cout << std::endl;
     }
+
+    /**
+     * @brief Zwraca nazwe aktualnie ustawionego algorytmu sortowania
+     *
+     * @return std::string nazwa aktualnego algorytmu
+     */
+    std::string GetCurrentAlgorithmName() const { return algorithm_name; }
 
     ManageSorting() {
         sorting_algorithm = std::make_unique<MergeSort<T>>();  // domyslny algorytm sortowania
