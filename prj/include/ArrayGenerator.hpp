@@ -34,6 +34,7 @@ class ArrayGenerator {
         for (std::size_t i = 0; i < size; ++i) {
             array[i] = std::rand();
         }
+
         // jezeli tablica ma byc wstepnie posortowana
         if (already_sorted > 0) {
             std::size_t last_index = (size - 1) * already_sorted;
