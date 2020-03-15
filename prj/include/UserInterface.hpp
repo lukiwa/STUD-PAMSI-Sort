@@ -1,10 +1,10 @@
 #pragma once
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
+#include "ArrayGenerator.hpp"
 #include "ManageSorting.hpp"
 #include "ToFileSaver.hpp"
-#include "ArrayGenerator.hpp"
 
 class UserInterface {
    private:
@@ -19,12 +19,12 @@ class UserInterface {
     ToFileSaver save;
     std::tuple<std::size_t, std::unique_ptr<int[]>> array_with_size;
 
-    void DisplayHelp() {}
+    void DisplayHelp();
     void SetParameters();
     void Parse(int argc, char** argv);
 
    public:
     void Begin(int argc, char** argv);
-    UserInterface();
-    ~UserInterface();
+    UserInterface() = default;
+    ~UserInterface() = default;
 };

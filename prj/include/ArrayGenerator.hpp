@@ -76,7 +76,7 @@ class ArrayGenerator {
         auto array = std::make_unique<T[]>(size);
         // wypełnienie tablicy losowymi elementami
         for (std::size_t i = 0; i < size; ++i) {
-            array[i] = std::rand() % 100;
+            array[i] = std::rand();
         }
 
         sorter.SortDown(array, 0, size - 1);
