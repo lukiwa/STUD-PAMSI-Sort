@@ -2,11 +2,12 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <sstream>
 
 class ToFileSaver {
    private:
     std::string file_path;
-    std::string filename;
+    std::ostringstream filename;
     std::string full_path;
 
    public:

@@ -6,6 +6,7 @@
 #include "IntroSort.hpp"
 #include "MergeSort.hpp"
 #include "QuickSort.hpp"
+#include "ArrayGenerator.hpp"
 
 enum class SortingAlgorithm { QUICKSORT, MERGESORT, INTROSORT };
 enum class SortingWay { ASCENDING, DESCENDING };
@@ -133,13 +134,6 @@ class ManageSorting {
         DisplayArray(array);
         std::cout << std::endl;
     }
-
-    /**
-     * @brief Zwraca nazwe aktualnie ustawionego algorytmu sortowania
-     *
-     * @return std::string nazwa aktualnego algorytmu
-     */
-    std::string GetCurrentAlgorithmName() const { return algorithm_name; }
 
     ManageSorting() {
         sorting_algorithm = std::make_unique<MergeSort<T>>();  // domyslny algorytm sortowania

@@ -17,17 +17,9 @@ ToFileSaver::ToFileSaver() { file_path = "data/"; }
  */
 void ToFileSaver::SetFilename(std::string algorithm_name, int number_of_arrays, std::size_t size,
                               double already_sorted, std::string already_sorted_way) {
-    filename += algorithm_name;
-    filename += "_";
-    filename += std::to_string(number_of_arrays);
-    filename += "_";
-    filename += std::to_string(size);
-    filename += "_";
-    filename += std::to_string(already_sorted);
-    filename += "_";
-    filename += already_sorted_way;
-    filename += ".csv";
-    full_path = file_path + filename;
+    filename << algorithm_name << "_" << number_of_arrays << "_" << size << "_" << already_sorted
+             << "_" << already_sorted_way << ".csv";
+    full_path = file_path + filename.str();
 }
 
 /**
@@ -37,10 +29,6 @@ void ToFileSaver::SetFilename(std::string algorithm_name, int number_of_arrays, 
  */
 void ToFileSaver::SaveToFile(double time) {
     std::ofstream stream;
-
-    /* --------------------------------- DEBUG --------------------------------- */
-    std::cout << full_path << std::endl;
-    /* -------------------------------------------------------------------------- */
 
     stream.open(full_path.c_str(), std::ios::out | std::ios::app);
     if (stream.fail()) {
