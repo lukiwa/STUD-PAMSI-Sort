@@ -77,4 +77,5 @@ void UserInterface::DisplayHelp() {
     std::cout << "Parametr 5: Jeżeli wpisano DOWN - tablica wstepnie bedzie posortowana malejaco, "
                  "jeżeli UP to rosnaco, zgodnie z parametrem 4"
               << std::endl;
+    throw "Displayed Help";
 }

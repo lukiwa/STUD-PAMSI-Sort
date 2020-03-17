@@ -3,10 +3,10 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include "ArrayGenerator.hpp"
 #include "IntroSort.hpp"
 #include "MergeSort.hpp"
 #include "QuickSort.hpp"
-#include "ArrayGenerator.hpp"
 
 enum class SortingAlgorithm { QUICKSORT, MERGESORT, INTROSORT };
 enum class SortingWay { ASCENDING, DESCENDING };
