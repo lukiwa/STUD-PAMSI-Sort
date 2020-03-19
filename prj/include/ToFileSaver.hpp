@@ -1,14 +1,15 @@
 #pragma once
 #include <fstream>
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
 class ToFileSaver {
    private:
-    std::string file_path;
+    std::ostringstream file_path;
     std::ostringstream filename;
     std::string full_path;
+    std::string extenstion;
 
    public:
     void SetFilename(std::string algorithm_name, int number_of_arrays, std::size_t size,

@@ -4,7 +4,10 @@
  * @brief Konstruuje nowy obiekt i ustawia domyslna sciezke do katalogu z plikami z danymi
  *
  */
-ToFileSaver::ToFileSaver() { file_path = "data/"; }
+ToFileSaver::ToFileSaver() {
+    extenstion = ".csv";
+    file_path << "data/";
+}
 
 /**
  * @brief Ustawia nazwe pliku
@@ -17,9 +20,11 @@ ToFileSaver::ToFileSaver() { file_path = "data/"; }
  */
 void ToFileSaver::SetFilename(std::string algorithm_name, int number_of_arrays, std::size_t size,
                               double already_sorted, std::string already_sorted_way) {
-    filename << algorithm_name << "_" << number_of_arrays << "_" << size << "_" << already_sorted
-             << "_" << already_sorted_way << ".csv";
-    full_path = file_path + filename.str();
+    file_path << algorithm_name << "/" << size << "/";
+
+    filename << already_sorted_way << "_" << already_sorted << "_" << number_of_arrays
+             << extenstion;
+    full_path = file_path.str() + filename.str();
 }
 
 /**
