@@ -1,5 +1,5 @@
 __start__:
-	doxygen Doxyfile 2> doxy.log
+	doxygen Doxyfile
 
 clean:
 	rm -fr html doxy.log

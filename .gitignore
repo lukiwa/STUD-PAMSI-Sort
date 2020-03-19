@@ -33,7 +33,5 @@
 
 #Own
 .vscode/
-dox/doxy.log
-dox/html/
 dox/latex/
 prj/bin/sorting
