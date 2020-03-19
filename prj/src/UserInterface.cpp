@@ -7,8 +7,15 @@
  * @param argv argv
  */
 void UserInterface::Begin(int argc, char** argv) {
-    Parse(argc, argv);
-    SetParameters();
+    try {
+        Parse(argc, argv);
+        SetParameters();
+    } catch (InputCheckException e) {
+        std::cout << e.what() << std::endl;
+        DisplayHelp();
+        return;
+    }
+
     for (int i = 0; i < number_of_arrays; ++i) {
         if (already_sorted_way == "DOWN") {
             array_with_size = ArrayGenerator<int>::GenerateReverseSortedArray(size);
@@ -27,10 +34,7 @@ void UserInterface::Begin(int argc, char** argv) {
  */
 void UserInterface::Parse(int argc, char** argv) {
     if (argc < 6) {
-        std::cout << "Brakujacy element! Wpisz help po nazwie programu aby uzyskac pomoc!"
-                  << std::endl;
-        DisplayHelp();
-        return;
+        throw InputCheckException();
     }
     algorithm_name = argv[1];
     number_of_arrays = std::stoi(argv[2]);
@@ -55,9 +59,7 @@ void UserInterface::SetParameters() {
     } else if (algorithm_name == "QuickSort") {
         sorting_algorithm = SortingAlgorithm::QUICKSORT;
     } else {
-        std::cout << "Nierozpoznana nazwa algorytmu sortowania!" << std::endl;
-        DisplayHelp();
-        return;
+        throw InputCheckException();
     }
     sort.SetSortingAlgorithm(sorting_algorithm);
     save.SetFilename(algorithm_name, number_of_arrays, size, already_sorted, already_sorted_way);
@@ -77,5 +79,4 @@ void UserInterface::DisplayHelp() {
     std::cout << "Parametr 5: Jeżeli wpisano DOWN - tablica wstepnie bedzie posortowana malejaco, "
                  "jeżeli UP to rosnaco, zgodnie z parametrem 4"
               << std::endl;
-    throw "Displayed Help";
 }

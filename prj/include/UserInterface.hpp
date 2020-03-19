@@ -2,7 +2,9 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+
 #include "ArrayGenerator.hpp"
+#include "InputCheckFailedException.hpp"
 #include "ManageSorting.hpp"
 #include "ToFileSaver.hpp"
 

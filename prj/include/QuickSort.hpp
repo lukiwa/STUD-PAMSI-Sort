@@ -1,4 +1,5 @@
 #pragma once
+#include "NotImplementedException.hpp"
 #include "Sort.hpp"
 
 template <typename T>
@@ -57,7 +58,7 @@ class QuickSort : public Sort<T> {
         UNUSED(array);
         UNUSED(start);
         UNUSED(end);
-        throw "Not Implemented";
+        throw new NotIomplementedException;
     }
 
     QuickSort() = default;
