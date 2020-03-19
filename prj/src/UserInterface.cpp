@@ -14,6 +14,14 @@ void UserInterface::Begin(int argc, char** argv) {
         std::cout << e.what() << std::endl;
         DisplayHelp();
         return;
+    } catch (ForceDemoSortingException e) {
+        std::cout << e.what() << std::endl;
+        sort.RealiseDemoSorting();
+        return;
+    } catch (ForceHelpDisplayException e) {
+        std::cout << e.what() << std::endl;
+        DisplayHelp();
+        return;
     }
 
     for (int i = 0; i < number_of_arrays; ++i) {
@@ -33,10 +41,22 @@ void UserInterface::Begin(int argc, char** argv) {
  *
  */
 void UserInterface::Parse(int argc, char** argv) {
+    std::string first_option = argv[1];
+    if (argc == 2) {
+        if (first_option == "help") {
+            throw ForceHelpDisplayException();
+        }
+        if (first_option == "demo") {
+            throw ForceDemoSortingException();
+        }
+    } else {
+        algorithm_name = first_option;
+    }
+
     if (argc < 6) {
         throw InputCheckException();
     }
-    algorithm_name = argv[1];
+
     number_of_arrays = std::stoi(argv[2]);
 
     // Konsersja do size_t
@@ -59,6 +79,7 @@ void UserInterface::SetParameters() {
     } else if (algorithm_name == "QuickSort") {
         sorting_algorithm = SortingAlgorithm::QUICKSORT;
     } else {
+        std::cout << "yikes" << std::endl;
         throw InputCheckException();
     }
     sort.SetSortingAlgorithm(sorting_algorithm);

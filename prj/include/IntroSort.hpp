@@ -15,7 +15,7 @@ class IntroSort : public QuickSort<T> {
      * @param end koniec sortowania
      */
     void SortUp(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end) override {
-        if (end <= 10) {
+        if (end <= 15) {
             sort.SortUp(array, start, end);
             return;
         }

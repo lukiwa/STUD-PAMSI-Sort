@@ -4,6 +4,8 @@
 #include <string>
 
 #include "ArrayGenerator.hpp"
+#include "ForceDemoSortingException.hpp"
+#include "ForceHelpDisplayException.hpp"
 #include "InputCheckFailedException.hpp"
 #include "ManageSorting.hpp"
 #include "ToFileSaver.hpp"
