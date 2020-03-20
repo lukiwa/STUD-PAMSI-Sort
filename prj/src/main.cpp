@@ -11,9 +11,6 @@
  */
 int main(int argc, char** argv) {
     srand(time(0));
-    // UserInterface ui;
-    // ui.Begin(argc, argv);
-
-    ManageSorting<int> manage;
-    manage.RealiseDemoSorting();
+    UserInterface ui;
+    ui.Begin(argc, argv);
 }

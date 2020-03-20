@@ -1,10 +1,30 @@
 #pragma once
+#include <math.h>
+
+#include "InsertionSort.hpp"
 #include "MergeSort.hpp"
 #include "QuickSort.hpp"
 
 template <typename T>
 class IntroSort : public QuickSort<T> {
-    MergeSort<T> sort;
+    InsertionSort<T> sort;
+    MergeSort<T> m_sort;
+
+   private:
+    void IntrospectiveSort(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end,
+                           std::size_t depth) {
+        if (depth == 0) {
+            m_sort.SortUp(array, start, end);
+        }
+        if ((start - end + 1) <= 16) {
+            sort.SortUp(array, start, end);
+        }
+        if (start < end) {
+            std::size_t mid = this->Split(array, start, end);
+            IntrospectiveSort(array, start, mid, depth - 1);
+            IntrospectiveSort(array, mid + 1, end, depth - 1);
+        }
+    }
 
    public:
     /**
@@ -15,15 +35,9 @@ class IntroSort : public QuickSort<T> {
      * @param end koniec sortowania
      */
     void SortUp(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end) override {
-        if (end <= 15) {
-            sort.SortUp(array, start, end);
-            return;
-        }
-        if (start < end) {
-            std::size_t mid = this->Split(array, start, end);
-            SortUp(array, start, mid);
-            SortUp(array, mid + 1, end);
-        }
+        std::size_t size = end - start + 1;
+        int depth = floor(2 * log(size) / M_LN2);
+        IntrospectiveSort(array, start, end, depth);
     }
 
     IntroSort() = default;

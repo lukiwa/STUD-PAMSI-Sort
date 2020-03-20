@@ -41,8 +41,9 @@ void UserInterface::Begin(int argc, char** argv) {
  *
  */
 void UserInterface::Parse(int argc, char** argv) {
-    std::string first_option = argv[1];
+    std::string first_option;
     if (argc == 2) {
+        first_option = argv[1];
         if (first_option == "help") {
             throw ForceHelpDisplayException();
         }
