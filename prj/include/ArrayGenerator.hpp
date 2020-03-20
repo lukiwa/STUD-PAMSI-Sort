@@ -1,8 +1,11 @@
-#pragma once
+#ifndef HEADERNAME_H
+#define HEADERNAME_H
+
 #include <time.h>
 
 #include <memory>
 
+#include "InsertionSort.hpp"
 #include "MergeSort.hpp"
 
 /**
@@ -12,6 +15,8 @@
  */
 template <typename T>
 class ArrayGenerator {
+    InsertionSort<int> test_sorter;
+
    public:
     ArrayGenerator() = default;
     ~ArrayGenerator() = default;
@@ -28,14 +33,15 @@ class ArrayGenerator {
      */
     static std::tuple<std::size_t, std::unique_ptr<T[]>> GenerateRandomArray(
         std::size_t size, double already_sorted = 0) {
-        srand(time(0));
         MergeSort<T> sort;
 
         auto array = std::make_unique<T[]>(size);
         // wypełnienie tablicy losowymi elementami
         for (std::size_t i = 0; i < size; ++i) {
-            array[i] = std::rand();
+            array[i] = std::rand() % 100;
+            std::cout << array[i] << " ";
         }
+        std::cout << std::endl;
 
         // jezeli tablica ma byc wstepnie posortowana
         if (already_sorted > 0) {
@@ -78,11 +84,33 @@ class ArrayGenerator {
         auto array = std::make_unique<T[]>(size);
         // wypełnienie tablicy losowymi elementami
         for (std::size_t i = 0; i < size; ++i) {
-            array[i] = std::rand();
+            array[i] = std::rand() % 100;
+            std::cout << array[i] << " ";
         }
 
         sorter.SortDown(array, 0, size - 1);
 
         return {size, std::move(array)};
     }
+
+    std::tuple<std::size_t, std::unique_ptr<T[]>> Test(std::size_t size) {
+        MergeSort<T> sorter;
+
+        auto array = std::make_unique<T[]>(size);
+        // wypełnienie tablicy losowymi elementami
+        for (std::size_t i = 0; i < size; ++i) {
+            array[i] = std::rand() % 100;
+            std::cout << array[i] << " ";
+        }
+
+        std::cout << std::endl;
+        sorter.SortDown(array, 0, size - 1);
+
+        for (std::size_t i = 0; i < size; ++i) {
+            std::cout << array[i] << " ";
+        }
+        return {size, std::move(array)};
+    }
 };
+
+#endif

@@ -73,8 +73,8 @@ class MergeSort : public Sort<T> {
      */
     void MergeDown(std::unique_ptr<T[]>& array, std::size_t start, std::size_t mid,
                    std::size_t end) {
-        std::size_t first_half_size = mid - start + 1;  // dlugosc pierwszej tablicy
-        std::size_t second_half_size = end - mid;       // dlugosc drugiej tablicy
+        const std::size_t first_half_size = mid - start + 1;  // dlugosc pierwszej tablicy
+        const std::size_t second_half_size = end - mid;       // dlugosc drugiej tablicy
 
         T* first_half = new T[first_half_size];
         T* second_half = new T[second_half_size];
@@ -114,6 +114,8 @@ class MergeSort : public Sort<T> {
             j++;
             k++;
         }
+        delete[] first_half;
+        delete[] second_half;
     }
 
    public:

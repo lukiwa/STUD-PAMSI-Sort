@@ -35,10 +35,17 @@ class InsertionSort : public Sort<T> {
      *
      */
     void SortDown(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end) override {
-        UNUSED(array);
-        UNUSED(start);
-        UNUSED(end);
-        throw NotIomplementedException();
+        T temp_lowest;
+        std::size_t j;
+        for (std::size_t i = start; i <= end; ++i) {
+            temp_lowest = array[i];
+            j = i - 1;
+            while (j >= start && array[j] < temp_lowest) {
+                array[j + 1] = array[j];
+                --j;
+            }
+            array[j + 1] = temp_lowest;
+        }
     }
     InsertionSort() = default;
     ~InsertionSort() = default;

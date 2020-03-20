@@ -49,9 +49,9 @@ void UserInterface::Parse(int argc, char** argv) {
         }
         if (first_option == "demo") {
             throw ForceDemoSortingException();
+        } else {
+            algorithm_name = argv[1];
         }
-    } else {
-        algorithm_name = argv[1];
     }
 
     if (argc < 6) {
