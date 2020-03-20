@@ -24,7 +24,7 @@ class QuickSort : public Sort<T> {
                 i++;
             }
             if (i < j) {
-                std::swap(array[i], array[j]);
+                std::swap(array[i], array[j]); 
                 i++;
                 j--;
             } else {

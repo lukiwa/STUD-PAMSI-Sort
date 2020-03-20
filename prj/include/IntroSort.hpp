@@ -7,17 +7,22 @@
 
 template <typename T>
 class IntroSort : public QuickSort<T> {
-    InsertionSort<T> sort;
-    MergeSort<T> m_sort;
+    InsertionSort<T> insert_sort;
+    MergeSort<T> merge_sort;
 
    private:
     void IntrospectiveSort(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end,
                            std::size_t depth) {
+        // w pesymstycznych przypadkach glebokosc rekursji moze byc bardzo duza - spowolnic
+        // sortowanie
         if (depth == 0) {
-            m_sort.SortUp(array, start, end);
+            merge_sort.SortUp(array, start, end);
+            return;
         }
+        // unikam sortowania krotkich frafmentow rekursywnie
         if ((start - end + 1) <= 16) {
-            sort.SortUp(array, start, end);
+            insert_sort.SortUp(array, start, end);
+            return;
         }
         if (start < end) {
             std::size_t mid = this->Split(array, start, end);
@@ -35,9 +40,20 @@ class IntroSort : public QuickSort<T> {
      * @param end koniec sortowania
      */
     void SortUp(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end) override {
-        std::size_t size = end - start + 1;
-        int depth = floor(2 * log(size) / M_LN2);
+        std::size_t size = end - start + 1;  // ilosc danych wejsciowych
+        int depth = 2 * log(size);           // obliczenie maksymalnej glebokosci rekursji
         IntrospectiveSort(array, start, end, depth);
+    }
+
+    /**
+     * @brief Sortowanie malejace - niezaimplementowane, poniewaz nie bedzie wykorzystywane
+     *
+     */
+    void SortDown(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end) override {
+        UNUSED(array);
+        UNUSED(start);
+        UNUSED(end);
+        throw NotIomplementedException();
     }
 
     IntroSort() = default;

@@ -138,7 +138,7 @@ class ManageSorting {
         sorting_algorithm->SortUp(std::get<1>(array), 0, std::get<0>(array) - 1);
         std::cout << std::endl << "Tablica po sortowaniu: ";
         DisplayArray(array);
-        std::cout << std::endl << std::endl; 
+        std::cout << std::endl << std::endl;
 
         array = ArrayGenerator<T>::GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::INSERTIONSORT);
