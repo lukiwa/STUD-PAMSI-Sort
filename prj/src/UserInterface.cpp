@@ -30,9 +30,12 @@ void UserInterface::Begin(int argc, char** argv) {
         } else {
             array_with_size = generator.GenerateRandomArray(size, already_sorted);
         }
-
-        sorting_time = sort.RealiseSorting(array_with_size);
-        save.SaveToFile(sorting_time);
+        try {
+            sorting_time = sort.RealiseSorting(array_with_size);
+            save.SaveToFile(sorting_time);
+        } catch (SortingErrorException e) {
+            std::cout << e.what() << std::endl;
+        }
     }
 }
 
@@ -41,23 +44,21 @@ void UserInterface::Begin(int argc, char** argv) {
  *
  */
 void UserInterface::Parse(int argc, char** argv) {
-    std::string first_option;
     if (argc == 2) {
+        std::string first_option;
         first_option = argv[1];
         if (first_option == "help") {
             throw ForceHelpDisplayException();
         }
         if (first_option == "demo") {
             throw ForceDemoSortingException();
-        } else {
-            algorithm_name = argv[1];
         }
     }
 
     if (argc < 6) {
         throw InputCheckException();
     }
-
+    algorithm_name = argv[1];
     number_of_arrays = std::stoi(argv[2]);
 
     // Konsersja do size_t

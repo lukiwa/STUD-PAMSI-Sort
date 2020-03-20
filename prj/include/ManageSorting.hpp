@@ -8,6 +8,7 @@
 #include "IntroSort.hpp"
 #include "MergeSort.hpp"
 #include "QuickSort.hpp"
+#include "SortingErrorException.hpp"
 #include "TestArrayGenerator.hpp"
 
 enum class SortingAlgorithm { QUICKSORT, MERGESORT, INTROSORT, INSERTIONSORT };
@@ -20,7 +21,7 @@ class ManageSorting {
     std::string algorithm_name;
     TestArrayGenerator generator;
 
-    using ArrayWithSize = std::tuple<std::size_t, std::unique_ptr<T[]>>;
+    using ArrayWithSize = std::tuple<std::size_t, std::unique_ptr<int[]>>;
 
     /**
      * @brief Wyswietla tablice
@@ -100,10 +101,11 @@ class ManageSorting {
         sorting_algorithm->SortUp(std::get<1>(array), 0, std::get<0>(array) - 1);
         auto end = std::chrono::steady_clock::now();
 
-        if (SortingCheck(array, SortingWay::ASCENDING)) {
+        if (SortingCheck(array)) {
             return std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+        } else {
+            throw SortingErrorException();
         }
-        return 9999;
     }
 
     /**
@@ -122,7 +124,7 @@ class ManageSorting {
         DisplayArray(array);
         std::cout << std::endl << std::endl;
 
-        auto array = generator.GenerateDemoArray();
+        array = generator.GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::QUICKSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
                   << "Tablica przed sortowaniem: ";
@@ -132,7 +134,7 @@ class ManageSorting {
         DisplayArray(array);
         std::cout << std::endl << std::endl;
 
-        auto array = generator.GenerateDemoArray();
+        array = generator.GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::INTROSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
                   << "Tablica przed sortowaniem: ";
@@ -142,7 +144,7 @@ class ManageSorting {
         DisplayArray(array);
         std::cout << std::endl << std::endl;
 
-        auto array = generator.GenerateDemoArray();
+        array = generator.GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::INSERTIONSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
                   << "Tablica przed sortowaniem: ";
