@@ -26,9 +26,9 @@ void UserInterface::Begin(int argc, char** argv) {
 
     for (int i = 0; i < number_of_arrays; ++i) {
         if (already_sorted_way == "DOWN") {
-            array_with_size = ArrayGenerator<int>::GenerateReverseSortedArray(size);
+            array_with_size = generator.GenerateReverseSortedArray(size);
         } else {
-            array_with_size = ArrayGenerator<int>::GenerateRandomArray(size, already_sorted);
+            array_with_size = generator.GenerateRandomArray(size, already_sorted);
         }
 
         sorting_time = sort.RealiseSorting(array_with_size);

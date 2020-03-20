@@ -17,19 +17,13 @@ std::tuple<std::size_t, std::unique_ptr<int[]>> TestArrayGenerator::GenerateRand
     auto array = std::make_unique<int[]>(size);
     // wypełnienie tablicy losowymi elementami
     for (std::size_t i = 0; i < size; ++i) {
-        array[i] = std::rand() % 100;
-        std::cout << array[i] << " ";
+        array[i] = std::rand();
     }
 
     // jezeli tablica ma byc wstepnie posortowana
     if (already_sorted > 0) {
         std::size_t last_index = (size - 1) * already_sorted;
         sort.SortUp(array, 0, last_index);
-    }
-    std::cout << std::endl;
-
-    for (std::size_t i = 0; i < size; ++i) {
-        std::cout << array[i] << " ";
     }
 
     return {size, std::move(array)};
@@ -68,16 +62,9 @@ std::tuple<std::size_t, std::unique_ptr<int[]>> TestArrayGenerator::GenerateReve
     // wypełnienie tablicy losowymi elementami
     for (std::size_t i = 0; i < size; ++i) {
         array[i] = std::rand();
-        std::cout << array[i] << " ";
     }
 
     sorter.SortDown(array, 0, size - 1);
-
-    std::cout << std::endl;
-
-    for (std::size_t i = 0; i < size; ++i) {
-        std::cout << array[i] << " ";
-    }
 
     return {size, std::move(array)};
 }

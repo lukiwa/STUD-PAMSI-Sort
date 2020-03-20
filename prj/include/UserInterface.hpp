@@ -3,11 +3,11 @@
 #include <sstream>
 #include <string>
 
-#include "ArrayGenerator.hpp"
 #include "ForceDemoSortingException.hpp"
 #include "ForceHelpDisplayException.hpp"
 #include "InputCheckFailedException.hpp"
 #include "ManageSorting.hpp"
+#include "TestArrayGenerator.hpp"
 #include "ToFileSaver.hpp"
 
 class UserInterface {
@@ -22,6 +22,7 @@ class UserInterface {
     ManageSorting<int> sort;
     ToFileSaver save;
     std::tuple<std::size_t, std::unique_ptr<int[]>> array_with_size;
+    TestArrayGenerator generator;
 
     void DisplayHelp();
     void SetParameters();

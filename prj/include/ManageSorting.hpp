@@ -4,11 +4,11 @@
 #include <memory>
 #include <string>
 
-#include "ArrayGenerator.hpp"
 #include "InsertionSort.hpp"
 #include "IntroSort.hpp"
 #include "MergeSort.hpp"
 #include "QuickSort.hpp"
+#include "TestArrayGenerator.hpp"
 
 enum class SortingAlgorithm { QUICKSORT, MERGESORT, INTROSORT, INSERTIONSORT };
 enum class SortingWay { ASCENDING, DESCENDING };
@@ -18,6 +18,8 @@ class ManageSorting {
    private:
     std::unique_ptr<Sort<T>> sorting_algorithm;
     std::string algorithm_name;
+    TestArrayGenerator generator;
+
     using ArrayWithSize = std::tuple<std::size_t, std::unique_ptr<T[]>>;
 
     /**
@@ -30,7 +32,7 @@ class ManageSorting {
             std::cout << std::get<1>(array)[i] << " ";
         }
     }
-    /** REVIEW czu sorting way potrzebne??
+    /**
      * @brief Sprawdza poprawnnosc posortowania tablicy
      *
      * @param array tablica ktora powinna byc posortowana
@@ -110,7 +112,7 @@ class ManageSorting {
      *
      */
     void RealiseDemoSorting() {
-        auto array = ArrayGenerator<T>::GenerateDemoArray();
+        auto array = generator.GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::MERGESORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
                   << "Tablica przed sortowaniem: ";
@@ -120,7 +122,7 @@ class ManageSorting {
         DisplayArray(array);
         std::cout << std::endl << std::endl;
 
-        array = ArrayGenerator<T>::GenerateDemoArray();
+        auto array = generator.GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::QUICKSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
                   << "Tablica przed sortowaniem: ";
@@ -130,7 +132,7 @@ class ManageSorting {
         DisplayArray(array);
         std::cout << std::endl << std::endl;
 
-        array = ArrayGenerator<T>::GenerateDemoArray();
+        auto array = generator.GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::INTROSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
                   << "Tablica przed sortowaniem: ";
@@ -140,7 +142,7 @@ class ManageSorting {
         DisplayArray(array);
         std::cout << std::endl << std::endl;
 
-        array = ArrayGenerator<T>::GenerateDemoArray();
+        auto array = generator.GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::INSERTIONSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
                   << "Tablica przed sortowaniem: ";
