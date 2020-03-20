@@ -3,12 +3,14 @@
 #include <iostream>
 #include <memory>
 #include <string>
+
 #include "ArrayGenerator.hpp"
+#include "InsertionSort.hpp"
 #include "IntroSort.hpp"
 #include "MergeSort.hpp"
 #include "QuickSort.hpp"
 
-enum class SortingAlgorithm { QUICKSORT, MERGESORT, INTROSORT };
+enum class SortingAlgorithm { QUICKSORT, MERGESORT, INTROSORT, INSERTIONSORT };
 enum class SortingWay { ASCENDING, DESCENDING };
 
 template <typename T>
@@ -78,6 +80,10 @@ class ManageSorting {
                 sorting_algorithm = std::make_unique<IntroSort<T>>();
                 algorithm_name = "IntroSort";
                 break;
+            case SortingAlgorithm::INSERTIONSORT:
+                sorting_algorithm = std::make_unique<InsertionSort<T>>();
+                algorithm_name = "InsertionSort";
+                break;
         }
     }
 
@@ -126,6 +132,16 @@ class ManageSorting {
 
         array = ArrayGenerator<T>::GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::INTROSORT);
+        std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
+                  << "Tablica przed sortowaniem: ";
+        DisplayArray(array);
+        sorting_algorithm->SortUp(std::get<1>(array), 0, std::get<0>(array) - 1);
+        std::cout << std::endl << "Tablica po sortowaniu: ";
+        DisplayArray(array);
+        std::cout << std::endl << std::endl; 
+
+        array = ArrayGenerator<T>::GenerateDemoArray();
+        SetSortingAlgorithm(SortingAlgorithm::INSERTIONSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
                   << "Tablica przed sortowaniem: ";
         DisplayArray(array);

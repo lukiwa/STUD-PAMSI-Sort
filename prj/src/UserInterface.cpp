@@ -79,7 +79,6 @@ void UserInterface::SetParameters() {
     } else if (algorithm_name == "QuickSort") {
         sorting_algorithm = SortingAlgorithm::QUICKSORT;
     } else {
-        std::cout << "yikes" << std::endl;
         throw InputCheckException();
     }
     sort.SetSortingAlgorithm(sorting_algorithm);

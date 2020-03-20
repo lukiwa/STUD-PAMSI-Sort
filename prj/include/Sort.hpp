@@ -1,6 +1,8 @@
 #pragma once
 #include <memory>
 
+#include "NotImplementedException.hpp"
+
 /**
  * @brief Makro które "wycisza" ostrzezenia kompilatora o nieuzywanej zmiennej w sytuacjach
  *        w ktorych nie chce danej zmiennej uzywac np. nie implementuje sortowania malejacego
@@ -11,7 +13,6 @@
     do {              \
         (void)(expr); \
     } while (0)
-
 
 template <typename T>
 class Sort {
