@@ -4,6 +4,7 @@
 #include <memory>
 #include <string>
 
+#include "HeapSort.hpp"
 #include "InsertionSort.hpp"
 #include "IntroSort.hpp"
 #include "MergeSort.hpp"
@@ -11,7 +12,7 @@
 #include "SortingErrorException.hpp"
 #include "TestArrayGenerator.hpp"
 
-enum class SortingAlgorithm { QUICKSORT, MERGESORT, INTROSORT, INSERTIONSORT };
+enum class SortingAlgorithm { QUICKSORT, MERGESORT, INTROSORT, INSERTIONSORT, HEAPSORT };
 enum class SortingWay { ASCENDING, DESCENDING };
 
 template <typename T>
@@ -45,7 +46,7 @@ class ManageSorting {
         switch (sorting_way) {
             case SortingWay::ASCENDING:
                 for (std::size_t i = 0; i < std::get<0>(array); ++i) {
-                    if (std::get<1>(array)[i] > std::get<1>(array)[i]) {
+                    if (std::get<1>(array)[i - 1] > std::get<1>(array)[i]) {
                         return false;
                     }
                 }
@@ -53,7 +54,7 @@ class ManageSorting {
 
             case SortingWay::DESCENDING:
                 for (std::size_t i = 0; i < std::get<0>(array); ++i) {
-                    if (std::get<1>(array)[i] < std::get<1>(array)[i]) {
+                    if (std::get<1>(array)[i - 1] < std::get<1>(array)[i]) {
                         return false;
                     }
                 }
@@ -87,6 +88,10 @@ class ManageSorting {
                 sorting_algorithm = std::make_unique<InsertionSort<T>>();
                 algorithm_name = "InsertionSort";
                 break;
+            case SortingAlgorithm::HEAPSORT:
+                sorting_algorithm = std::make_unique<HeapSort<T>>();
+                algorithm_name = "HeapSort";
+                break;
         }
     }
 
@@ -114,6 +119,7 @@ class ManageSorting {
      *
      */
     void RealiseDemoSorting() {
+        /* ---------------------------------- MERGE --------------------------------- */
         auto array = generator.GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::MERGESORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
@@ -124,6 +130,7 @@ class ManageSorting {
         DisplayArray(array);
         std::cout << std::endl << std::endl;
 
+        /* ---------------------------------- QUICK --------------------------------- */
         array = generator.GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::QUICKSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
@@ -134,8 +141,9 @@ class ManageSorting {
         DisplayArray(array);
         std::cout << std::endl << std::endl;
 
+        /* --------------------------------- INSERT --------------------------------- */
         array = generator.GenerateDemoArray();
-        SetSortingAlgorithm(SortingAlgorithm::INTROSORT);
+        SetSortingAlgorithm(SortingAlgorithm::INSERTIONSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
                   << "Tablica przed sortowaniem: ";
         DisplayArray(array);
@@ -144,8 +152,20 @@ class ManageSorting {
         DisplayArray(array);
         std::cout << std::endl << std::endl;
 
+        /* ---------------------------------- HEAP ---------------------------------- */
         array = generator.GenerateDemoArray();
-        SetSortingAlgorithm(SortingAlgorithm::INSERTIONSORT);
+        SetSortingAlgorithm(SortingAlgorithm::HEAPSORT);
+        std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
+                  << "Tablica przed sortowaniem: ";
+        DisplayArray(array);
+        sorting_algorithm->SortUp(std::get<1>(array), 0, std::get<0>(array) - 1);
+        std::cout << std::endl << "Tablica po sortowaniu: ";
+        DisplayArray(array);
+        std::cout << std::endl << std::endl;
+
+        /* --------------------------------- INSERT --------------------------------- */
+        array = generator.GenerateDemoArray();
+        SetSortingAlgorithm(SortingAlgorithm::INTROSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
                   << "Tablica przed sortowaniem: ";
         DisplayArray(array);

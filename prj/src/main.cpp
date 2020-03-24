@@ -1,8 +1,6 @@
 #include <iostream>
 #include <memory>
 
-#include "InsertionSort.hpp"
-#include "TestArrayGenerator.hpp"
 #include "UserInterface.hpp"
 
 /**
