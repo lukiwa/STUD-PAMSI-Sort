@@ -13,7 +13,8 @@ class QuickSort : public Sort<T> {
      * @return T mediana
      */
     T MedianOf3(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end) {
-        int median = (start + end) / 2;
+        // std::size_t median = (start + end) / 2;
+        std::size_t median = start + (end - start) / 2;
 
         if (array[start] > array[end]) {
             std::swap(array[start], array[end]);
