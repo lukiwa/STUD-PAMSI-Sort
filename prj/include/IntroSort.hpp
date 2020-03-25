@@ -3,18 +3,20 @@
 
 #include "HeapSort.hpp"
 #include "InsertionSort.hpp"
+#include "MergeSort.hpp"
 #include "QuickSort.hpp"
 
 template <typename T>
 class IntroSort : public QuickSort<T> {
     InsertionSort<T> insert_sort;
     HeapSort<T> heap_sort;
+    MergeSort<T> merge_sort;
 
    private:
     void IntrospectiveSort(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end,
                            std::size_t depth) {
         // unikam rekurencyjnego sortowania malych tablic
-        if ((end - start + 1) <= 9) {
+        if ((end - start + 1) <= 16) {
             insert_sort.SortUp(array, start, end);
             return;
         }
@@ -23,6 +25,8 @@ class IntroSort : public QuickSort<T> {
         // sortowanie
         if (depth == 0) {
             heap_sort.SortUp(array, start, end);
+            // heap_sort.FullHeapSort(array, 500000);
+            // merge_sort.SortUp(array, start, end);
             return;
         }
 

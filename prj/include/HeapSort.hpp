@@ -92,6 +92,7 @@ class HeapSort : public Sort<T> {
         UNUSED(end);
         throw NotIomplementedException();
     }
+
     HeapSort() = default;
     ~HeapSort() = default;
 };

@@ -3,6 +3,31 @@
 
 template <typename T>
 class QuickSort : public Sort<T> {
+   private:
+    /**
+     * @brief Szuka mediany 3 elementow i je sortuje (rosnaco)
+     *
+     * @param array tablica w ktorej sa elementu
+     * @param start poczatkowy indeks
+     * @param end indeks koncowy
+     * @return T mediana
+     */
+    T MedianOf3(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end) {
+        int median = (start + end) / 2;
+
+        if (array[start] > array[end]) {
+            std::swap(array[start], array[end]);
+        }
+        if (array[start] > array[median]) {
+            std::swap(array[start], array[median]);
+        }
+        if (array[end] > array[median]) {
+            std::swap(array[end], array[median]);
+        }
+
+        return array[end];
+    }
+
    protected:
     /**
      * @brief podzielenie tablicy na pol a nastepnie przesnieienie alementow mniejszych od pivota na
@@ -14,7 +39,7 @@ class QuickSort : public Sort<T> {
      * @return int
      */
     int Split(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end) {
-        T pivot = array[(start + end) / 2];  // pivot wybrany jako srodek tablicy
+        T pivot = MedianOf3(array, start, end);
         std::size_t i = start, j = end;
         while (true) {
             while (array[j] > pivot) {
@@ -24,7 +49,7 @@ class QuickSort : public Sort<T> {
                 i++;
             }
             if (i < j) {
-                std::swap(array[i], array[j]); 
+                std::swap(array[i], array[j]);
                 i++;
                 j--;
             } else {
