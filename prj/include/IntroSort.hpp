@@ -10,6 +10,7 @@ template <typename T>
 class IntroSort : public QuickSort<T> {
     InsertionSort<T> insert_sort;
     HeapSort<T> heap_sort;
+    MergeSort<T> merge_sort;
 
    private:
     void IntrospectiveSort(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end,
@@ -23,7 +24,8 @@ class IntroSort : public QuickSort<T> {
         // w pesymstycznych przypadkach glebokosc rekursji moze byc bardzo duza - spowolnic
         // sortowanie
         if (depth == 0) {
-            heap_sort.FullHeapSort(array);
+            // heap_sort.FullHeapSort(array);
+            merge_sort.SortUp(array, start, end);
             return;
         }
 
