@@ -12,7 +12,7 @@
 #include "SortingErrorException.hpp"
 #include "TestArrayGenerator.hpp"
 
-enum class SortingAlgorithm { QUICKSORT, MERGESORT, INTROSORT, INSERTIONSORT, HEAPSORT };
+enum class SortingAlgorithm { QUICKSORT, MERGESORT, INTROSORT, INSERTIONSORT };
 enum class SortingWay { ASCENDING, DESCENDING };
 
 template <typename T>
@@ -21,6 +21,7 @@ class ManageSorting {
     std::unique_ptr<Sort<T>> sorting_algorithm;
     std::string algorithm_name;
     TestArrayGenerator generator;
+    HeapSort<T> heap_sort;
 
     using ArrayWithSize = std::tuple<std::size_t, std::unique_ptr<int[]>>;
 
@@ -88,10 +89,6 @@ class ManageSorting {
                 sorting_algorithm = std::make_unique<InsertionSort<T>>();
                 algorithm_name = "InsertionSort";
                 break;
-            case SortingAlgorithm::HEAPSORT:
-                sorting_algorithm = std::make_unique<HeapSort<T>>();
-                algorithm_name = "HeapSort";
-                break;
         }
     }
 
@@ -152,13 +149,15 @@ class ManageSorting {
         DisplayArray(array);
         std::cout << std::endl << std::endl;
 
-        /* ---------------------------------- HEAP ---------------------------------- */
+        /* ---------------------------------- HEAP***** ---------------------------------- */
         array = generator.GenerateDemoArray();
-        SetSortingAlgorithm(SortingAlgorithm::HEAPSORT);
-        std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
+
+        std::cout << "Algorytm sortowania: "
+                  << "HeapSort" << std::endl
                   << "Tablica przed sortowaniem: ";
         DisplayArray(array);
-        sorting_algorithm->SortUp(std::get<1>(array), 0, std::get<0>(array) - 1);
+        heap_sort.AddSize(std::get<0>(array));
+        heap_sort.FullHeapSort(std::get<1>(array));
         std::cout << std::endl << "Tablica po sortowaniu: ";
         DisplayArray(array);
         std::cout << std::endl << std::endl;

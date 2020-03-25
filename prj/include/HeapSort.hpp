@@ -3,8 +3,16 @@
 
 #include "Sort.hpp"
 
+/**
+ * @brief Sortowanie przez kopcowanie - niestety nie udalo mi sie "zmusic " jej do dziedziczenia po
+ *        Klasie sort, z roznych wzgledow
+ *
+ * @tparam T typ danych
+ */
 template <typename T>
-class HeapSort : public Sort<T> {
+class HeapSort {
+   private:
+    std::size_t size;  // rozmiar tablicy ktora bedzie sortowana
     /**
      * @brief "Naprawia" kopiec
      *
@@ -42,55 +50,27 @@ class HeapSort : public Sort<T> {
 
    public:
     /**
+     * @brief Dodaj rozmiar tablicy ktora bedzie sortowana
+     *
+     * @param size rozmiar tablicy
+     */
+    void AddSize(std::size_t size) { this->size = size; }
+
+    /**
      * @brief Sortowanie przez kopcowanie
      *
      * @param array tablica do posortowania
      * @param n wielkosc tej tablicy
      */
-    void FullHeapSort(std::unique_ptr<T[]>& array, std::size_t n) {
-        std::size_t heap_size = n;
-        BuildMaxHeap(array, n);
+    void FullHeapSort(std::unique_ptr<T[]>& array) {
+        std::size_t heap_size = size;
+        BuildMaxHeap(array, size);
 
-        for (std::size_t i = n - 1; i > 0; --i) {
+        for (std::size_t i = size - 1; i > 0; --i) {
             std::swap(array[0], array[i]);
             --heap_size;
             MaxHeapify(array, 0, heap_size);
         }
-    }
-
-    /**
-     * @brief Czesciowe sortowanie przez kopcowanie
-     *
-     * @param array tablica ktorej fragment ma zostac posortowany
-     * @param start poczatkowy indeks od ktorego ma byc sortowanie
-     * @param end indeks koncowy
-     */
-    void SortUp(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end) override {
-        // stworzenie tablicy pomocniczej do sortowania
-        auto sub_array = std::make_unique<int[]>(end - start + 1);
-        for (std::size_t i = 0; i < end - start + 1; ++i) {
-            for (std::size_t j = start; j < end; ++j) {
-                sub_array[i] = array[j];
-            }
-        }
-
-        // przeprowadzenie sortowania przez kopcowanie na wydzielonej tablicy
-        FullHeapSort(sub_array, end - start + 1);
-
-        // scalenie tablic
-        for (std::size_t i = start; i <= end; i++) {
-            array[i] = sub_array[i - start];
-        }
-    }
-    /**
-     * @brief Sortowanie malejace - niezaimplementowane, poniewaz nie bedzie wykorzystywane
-     *
-     */
-    void SortDown(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end) override {
-        UNUSED(array);
-        UNUSED(start);
-        UNUSED(end);
-        throw NotIomplementedException();
     }
 
     HeapSort() = default;
