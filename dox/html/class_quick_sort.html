@@ -61,6 +61,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="class_quick_sort-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">QuickSort&lt; T &gt; Class Template Reference</div>  </div>
@@ -109,13 +110,19 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:aa8a38e87094ef8b16ba325dee758404b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quick_sort.html#aa8a38e87094ef8b16ba325dee758404b">Split</a> (std::unique_ptr&lt; T[]&gt; &amp;array, std::size_t start, std::size_t end)</td></tr>
 <tr class="memdesc:aa8a38e87094ef8b16ba325dee758404b"><td class="mdescLeft">&#160;</td><td class="mdescRight">podzielenie tablicy na pol a nastepnie przesnieienie alementow mniejszych od pivota na lewo, a wiekszych na prawo  <a href="#aa8a38e87094ef8b16ba325dee758404b">More...</a><br /></td></tr>
 <tr class="separator:aa8a38e87094ef8b16ba325dee758404b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a4eec575227f0f9d82c07af35750c0e19"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quick_sort.html#a4eec575227f0f9d82c07af35750c0e19">MedianOf3</a> (std::unique_ptr&lt; T[]&gt; &amp;array, std::size_t start, std::size_t end)</td></tr>
+<tr class="memdesc:a4eec575227f0f9d82c07af35750c0e19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Szuka mediany 3 elementow i je sortuje (rosnaco)  <a href="#a4eec575227f0f9d82c07af35750c0e19">More...</a><br /></td></tr>
+<tr class="separator:a4eec575227f0f9d82c07af35750c0e19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
 class QuickSort&lt; T &gt;</h3>
 
 
-<p class="definition">Definition at line <a class="el" href="_quick_sort_8hpp_source.html#l00006">6</a> of file <a class="el" href="_quick_sort_8hpp_source.html">QuickSort.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_quick_sort_8hpp_source.html#l00005">5</a> of file <a class="el" href="_quick_sort_8hpp_source.html">QuickSort.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9631043b2e46c67cfa62b1e4ea2f5f66"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9631043b2e46c67cfa62b1e4ea2f5f66">&#9670;&nbsp;</a></span>QuickSort()</h2>
@@ -172,6 +179,61 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4eec575227f0f9d82c07af35750c0e19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eec575227f0f9d82c07af35750c0e19">&#9670;&nbsp;</a></span>MedianOf3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="class_quick_sort.html">QuickSort</a>&lt; T &gt;::MedianOf3 </td>
+          <td>(</td>
+          <td class="paramtype">std::unique_ptr&lt; T[]&gt; &amp;&#160;</td>
+          <td class="paramname"><em>array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>tablica w ktorej sa elementu </td></tr>
+    <tr><td class="paramname">start</td><td>poczatkowy indeks </td></tr>
+    <tr><td class="paramname">end</td><td>indeks koncowy </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>T mediana </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_quick_sort_8hpp_source.html#l00015">15</a> of file <a class="el" href="_quick_sort_8hpp_source.html">QuickSort.hpp</a>.</p>
+
+</div>
+</div>
 <a id="ae5b666944063bc669523dc29aa394bf5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae5b666944063bc669523dc29aa394bf5">&#9670;&nbsp;</a></span>SortDown()</h2>
 
@@ -216,7 +278,7 @@ template&lt;typename T &gt; </div>
 
 <p>Implements <a class="el" href="class_sort.html#af3f18ca3e7f2184689d73c75b9630750">Sort&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_quick_sort_8hpp_source.html#l00057">57</a> of file <a class="el" href="_quick_sort_8hpp_source.html">QuickSort.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_quick_sort_8hpp_source.html#l00081">81</a> of file <a class="el" href="_quick_sort_8hpp_source.html">QuickSort.hpp</a>.</p>
 
 </div>
 </div>
@@ -272,7 +334,7 @@ template&lt;typename T &gt; </div>
 
 <p>Implements <a class="el" href="class_sort.html#a4be1925c2cec6b689e1ef21cf6da3f68">Sort&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_quick_sort_8hpp_source.html#l00045">45</a> of file <a class="el" href="_quick_sort_8hpp_source.html">QuickSort.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_quick_sort_8hpp_source.html#l00069">69</a> of file <a class="el" href="_quick_sort_8hpp_source.html">QuickSort.hpp</a>.</p>
 
 </div>
 </div>
@@ -327,7 +389,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_quick_sort_8hpp_source.html#l00017">17</a> of file <a class="el" href="_quick_sort_8hpp_source.html">QuickSort.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_quick_sort_8hpp_source.html#l00041">41</a> of file <a class="el" href="_quick_sort_8hpp_source.html">QuickSort.hpp</a>.</p>
 
 </div>
 </div>

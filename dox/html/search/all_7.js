@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['inputcheckexception',['InputCheckException',['../class_input_check_exception.html',1,'']]],
-  ['inputcheckfailedexception_2ehpp',['InputCheckFailedException.hpp',['../_input_check_failed_exception_8hpp.html',1,'']]],
-  ['introsort',['IntroSort',['../class_intro_sort.html',1,'IntroSort&lt; T &gt;'],['../class_intro_sort.html#a6b7cfbd297dfdb5b93ae2d746423ce38',1,'IntroSort::IntroSort()'],['../_manage_sorting_8hpp.html#a52a632477c52361a3c081626bdef3e61ab3414cf45d7a280e36a8e7d1f3d2497c',1,'INTROSORT():&#160;ManageSorting.hpp']]],
-  ['introsort_2ehpp',['IntroSort.hpp',['../_intro_sort_8hpp.html',1,'']]]
+  ['heap_5fsort',['heap_sort',['../class_intro_sort.html#aa74876e062cadeef9b2344f2b859f290',1,'IntroSort']]],
+  ['heapsort',['HeapSort',['../class_heap_sort.html',1,'HeapSort&lt; T &gt;'],['../class_heap_sort.html#a0cf01f52b9f96db6dc472885a0dddce6',1,'HeapSort::HeapSort()'],['../_manage_sorting_8hpp.html#a52a632477c52361a3c081626bdef3e61a5c68a95bdfc6151bfd83208b08394558',1,'HEAPSORT():&#160;ManageSorting.hpp']]],
+  ['heapsort_2ehpp',['HeapSort.hpp',['../_heap_sort_8hpp.html',1,'']]]
 ];

@@ -73,21 +73,27 @@ $(function() {
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
-<code>#include &quot;<a class="el" href="_array_generator_8hpp_source.html">ArrayGenerator.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_heap_sort_8hpp_source.html">HeapSort.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_insertion_sort_8hpp_source.html">InsertionSort.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_intro_sort_8hpp_source.html">IntroSort.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_merge_sort_8hpp_source.html">MergeSort.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_quick_sort_8hpp_source.html">QuickSort.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_sorting_error_exception_8hpp_source.html">SortingErrorException.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_test_array_generator_8hpp_source.html">TestArrayGenerator.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ManageSorting.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_manage_sorting_8hpp__incl.png" border="0" usemap="#_manage_sorting_8hpp" alt=""/></div>
 <map name="_manage_sorting_8hpp" id="_manage_sorting_8hpp">
-<area shape="rect" id="node6" href="_array_generator_8hpp.html" title="ArrayGenerator.hpp" alt="" coords="423,80,558,107"/>
-<area shape="rect" id="node8" href="_merge_sort_8hpp.html" title="MergeSort.hpp" alt="" coords="332,155,439,181"/>
-<area shape="rect" id="node10" href="_intro_sort_8hpp.html" title="IntroSort.hpp" alt="" coords="250,80,347,107"/>
-<area shape="rect" id="node11" href="_quick_sort_8hpp.html" title="QuickSort.hpp" alt="" coords="195,155,301,181"/>
-<area shape="rect" id="node9" href="_sort_8hpp.html" title="Sort.hpp" alt="" coords="367,229,438,256"/>
-<area shape="rect" id="node12" href="_not_implemented_exception_8hpp.html" title="NotImplementedException.hpp" alt="" coords="142,229,343,256"/>
+<area shape="rect" id="node6" href="_heap_sort_8hpp.html" title="HeapSort.hpp" alt="" coords="635,155,738,181"/>
+<area shape="rect" id="node10" href="_insertion_sort_8hpp.html" title="InsertionSort.hpp" alt="" coords="271,155,393,181"/>
+<area shape="rect" id="node11" href="_intro_sort_8hpp.html" title="IntroSort.hpp" alt="" coords="391,80,489,107"/>
+<area shape="rect" id="node13" href="_merge_sort_8hpp.html" title="MergeSort.hpp" alt="" coords="504,155,611,181"/>
+<area shape="rect" id="node14" href="_quick_sort_8hpp.html" title="QuickSort.hpp" alt="" coords="142,155,247,181"/>
+<area shape="rect" id="node15" href="_sorting_error_exception_8hpp.html" title="SortingErrorException.hpp" alt="" coords="777,304,951,331"/>
+<area shape="rect" id="node16" href="_test_array_generator_8hpp.html" title="TestArrayGenerator.hpp" alt="" coords="565,80,726,107"/>
+<area shape="rect" id="node7" href="_sort_8hpp.html" title="Sort.hpp" alt="" coords="522,229,593,256"/>
+<area shape="rect" id="node8" href="_not_implemented_exception_8hpp.html" title="NotImplementedException.hpp" alt="" coords="457,304,658,331"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -110,9 +116,14 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a52a632477c52361a3c081626bdef3e61"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_manage_sorting_8hpp.html#a52a632477c52361a3c081626bdef3e61">SortingAlgorithm</a> { <a class="el" href="_manage_sorting_8hpp.html#a52a632477c52361a3c081626bdef3e61a7fe6ba472e180c3712843601b1e49acf">SortingAlgorithm::QUICKSORT</a>, 
+<tr class="memitem:a52a632477c52361a3c081626bdef3e61"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_manage_sorting_8hpp.html#a52a632477c52361a3c081626bdef3e61">SortingAlgorithm</a> { <br />
+&#160;&#160;<a class="el" href="_manage_sorting_8hpp.html#a52a632477c52361a3c081626bdef3e61a7fe6ba472e180c3712843601b1e49acf">SortingAlgorithm::QUICKSORT</a>, 
 <a class="el" href="_manage_sorting_8hpp.html#a52a632477c52361a3c081626bdef3e61a59a2108c5954b186a098b57b74e95a96">SortingAlgorithm::MERGESORT</a>, 
-<a class="el" href="_manage_sorting_8hpp.html#a52a632477c52361a3c081626bdef3e61ab3414cf45d7a280e36a8e7d1f3d2497c">SortingAlgorithm::INTROSORT</a>
+<a class="el" href="_manage_sorting_8hpp.html#a52a632477c52361a3c081626bdef3e61ab3414cf45d7a280e36a8e7d1f3d2497c">SortingAlgorithm::INTROSORT</a>, 
+<a class="el" href="_manage_sorting_8hpp.html#a52a632477c52361a3c081626bdef3e61ac19cfbd801c630a0f2c1465d9faf1ab4">SortingAlgorithm::INSERTIONSORT</a>, 
+<br />
+&#160;&#160;<a class="el" href="_manage_sorting_8hpp.html#a52a632477c52361a3c081626bdef3e61a5c68a95bdfc6151bfd83208b08394558">SortingAlgorithm::HEAPSORT</a>
+<br />
  }</td></tr>
 <tr class="separator:a52a632477c52361a3c081626bdef3e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11d002770c0c461f398f01f5bec550b5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_manage_sorting_8hpp.html#a11d002770c0c461f398f01f5bec550b5">SortingWay</a> { <a class="el" href="_manage_sorting_8hpp.html#a11d002770c0c461f398f01f5bec550b5a83ec681a20197326c163ea3b39ef7c32">SortingWay::ASCENDING</a>, 
@@ -144,9 +155,11 @@ Enumerations</h2></td></tr>
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a52a632477c52361a3c081626bdef3e61a7fe6ba472e180c3712843601b1e49acf"></a>QUICKSORT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a52a632477c52361a3c081626bdef3e61a59a2108c5954b186a098b57b74e95a96"></a>MERGESORT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a52a632477c52361a3c081626bdef3e61ab3414cf45d7a280e36a8e7d1f3d2497c"></a>INTROSORT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a52a632477c52361a3c081626bdef3e61ac19cfbd801c630a0f2c1465d9faf1ab4"></a>INSERTIONSORT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a52a632477c52361a3c081626bdef3e61a5c68a95bdfc6151bfd83208b08394558"></a>HEAPSORT&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_manage_sorting_8hpp_source.html#l00011">11</a> of file <a class="el" href="_manage_sorting_8hpp_source.html">ManageSorting.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_manage_sorting_8hpp_source.html#l00015">15</a> of file <a class="el" href="_manage_sorting_8hpp_source.html">ManageSorting.hpp</a>.</p>
 
 </div>
 </div>
@@ -174,7 +187,7 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="a11d002770c0c461f398f01f5bec550b5acff818f0ae4cef845577e39283886a53"></a>DESCENDING&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_manage_sorting_8hpp_source.html#l00012">12</a> of file <a class="el" href="_manage_sorting_8hpp_source.html">ManageSorting.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_manage_sorting_8hpp_source.html#l00016">16</a> of file <a class="el" href="_manage_sorting_8hpp_source.html">ManageSorting.hpp</a>.</p>
 
 </div>
 </div>

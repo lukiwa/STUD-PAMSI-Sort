@@ -1,5 +1,7 @@
 <map id="Sort&lt; T &gt;" name="Sort&lt; T &gt;">
-<area shape="rect" id="node2" href="$class_merge_sort.html" title="Klasa umozliwia sortowanie przez scalanie. " alt="" coords="5,80,120,107"/>
-<area shape="rect" id="node3" href="$class_quick_sort.html" title="QuickSort\&lt; T \&gt;" alt="" coords="144,80,256,107"/>
-<area shape="rect" id="node4" href="$class_intro_sort.html" title="IntroSort\&lt; T \&gt;" alt="" coords="148,155,252,181"/>
+<area shape="rect" id="node2" href="$class_heap_sort.html" title="HeapSort\&lt; T \&gt;" alt="" coords="5,80,115,107"/>
+<area shape="rect" id="node3" href="$class_insertion_sort.html" title="Klasa umozliwia sortowanie przez wstawianie. " alt="" coords="139,80,267,107"/>
+<area shape="rect" id="node4" href="$class_merge_sort.html" title="Klasa umozliwia sortowanie przez scalanie. " alt="" coords="291,80,405,107"/>
+<area shape="rect" id="node5" href="$class_quick_sort.html" title="QuickSort\&lt; T \&gt;" alt="" coords="429,80,541,107"/>
+<area shape="rect" id="node6" href="$class_intro_sort.html" title="IntroSort\&lt; T \&gt;" alt="" coords="433,155,537,181"/>
 </map>

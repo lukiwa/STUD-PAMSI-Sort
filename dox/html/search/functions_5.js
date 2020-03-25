@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['introsort',['IntroSort',['../class_intro_sort.html#a6b7cfbd297dfdb5b93ae2d746423ce38',1,'IntroSort']]]
+  ['heapsort',['HeapSort',['../class_heap_sort.html#a0cf01f52b9f96db6dc472885a0dddce6',1,'HeapSort']]]
 ];

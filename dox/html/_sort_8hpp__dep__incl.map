@@ -1,10 +1,13 @@
 <map id="Sort.hpp" name="Sort.hpp">
-<area shape="rect" id="node2" href="$_merge_sort_8hpp.html" title="MergeSort.hpp" alt="" coords="125,80,231,107"/>
-<area shape="rect" id="node9" href="$_quick_sort_8hpp.html" title="QuickSort.hpp" alt="" coords="256,80,361,107"/>
-<area shape="rect" id="node3" href="$_array_generator_8hpp.html" title="ArrayGenerator.hpp" alt="" coords="5,155,140,181"/>
-<area shape="rect" id="node4" href="$_manage_sorting_8hpp.html" title="ManageSorting.hpp" alt="" coords="111,229,245,256"/>
-<area shape="rect" id="node8" href="$_intro_sort_8hpp.html" title="IntroSort.hpp" alt="" coords="216,155,313,181"/>
-<area shape="rect" id="node5" href="$_user_interface_8hpp.html" title="UserInterface.hpp" alt="" coords="61,304,188,331"/>
-<area shape="rect" id="node6" href="$main_8cpp.html" title="main.cpp" alt="" coords="25,379,99,405"/>
-<area shape="rect" id="node7" href="$_user_interface_8cpp.html" title="UserInterface.cpp" alt="" coords="124,379,251,405"/>
+<area shape="rect" id="node2" href="$_heap_sort_8hpp.html" title="HeapSort.hpp" alt="" coords="496,80,599,107"/>
+<area shape="rect" id="node8" href="$_insertion_sort_8hpp.html" title="InsertionSort.hpp" alt="" coords="221,80,343,107"/>
+<area shape="rect" id="node9" href="$_merge_sort_8hpp.html" title="MergeSort.hpp" alt="" coords="90,80,197,107"/>
+<area shape="rect" id="node12" href="$_quick_sort_8hpp.html" title="QuickSort.hpp" alt="" coords="367,80,472,107"/>
+<area shape="rect" id="node3" href="$_intro_sort_8hpp.html" title="IntroSort.hpp" alt="" coords="320,155,417,181"/>
+<area shape="rect" id="node4" href="$_manage_sorting_8hpp.html" title="ManageSorting.hpp" alt="" coords="243,229,377,256"/>
+<area shape="rect" id="node5" href="$_user_interface_8hpp.html" title="UserInterface.hpp" alt="" coords="193,304,320,331"/>
+<area shape="rect" id="node6" href="$main_8cpp.html" title="main.cpp" alt="" coords="157,379,231,405"/>
+<area shape="rect" id="node7" href="$_user_interface_8cpp.html" title="UserInterface.cpp" alt="" coords="256,379,383,405"/>
+<area shape="rect" id="node10" href="$_test_array_generator_8hpp.html" title="TestArrayGenerator.hpp" alt="" coords="32,155,193,181"/>
+<area shape="rect" id="node11" href="$_test_array_generator_8cpp.html" title="TestArrayGenerator.cpp" alt="" coords="5,229,167,256"/>
 </map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['number_5fof_5farrays',['number_of_arrays',['../class_user_interface.html#aca4a4fb439c912addb807bb069cdb1ed',1,'UserInterface']]]
+  ['generator',['generator',['../class_manage_sorting.html#a98a81c240fa447ae8246f780fd6b6a1a',1,'ManageSorting::generator()'],['../class_user_interface.html#ac754c10345d2dc0bad7d450f798fdea7',1,'UserInterface::generator()']]]
 ];

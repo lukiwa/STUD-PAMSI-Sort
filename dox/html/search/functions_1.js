@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['begin',['Begin',['../class_user_interface.html#a0b5d3dad034b1725c2bea60a8e7dd089',1,'UserInterface']]]
+  ['clearfilename',['ClearFilename',['../class_to_file_saver.html#a20445f25d00b7e183db31bfa14cbf867',1,'ToFileSaver']]]
 ];

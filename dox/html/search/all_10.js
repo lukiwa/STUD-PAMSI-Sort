@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['what',['what',['../class_force_demo_sorting_exception.html#a1581f0a9d07d7c49f89fb35eac72ee38',1,'ForceDemoSortingException::what()'],['../class_force_help_display_exception.html#a19991810f6759029acdfd524bab14e14',1,'ForceHelpDisplayException::what()'],['../class_input_check_exception.html#a31503dff23a82d6f858c2b68fc89b8e0',1,'InputCheckException::what()'],['../class_not_iomplemented_exception.html#af2cd479c09a3fd4aba169dab271fc1fb',1,'NotIomplementedException::what()']]]
+  ['unused',['UNUSED',['../_sort_8hpp.html#aea1d71af1a30c261dbd16745c82e94ba',1,'Sort.hpp']]],
+  ['userinterface',['UserInterface',['../class_user_interface.html',1,'UserInterface'],['../class_user_interface.html#a9bd94d9b820ac9b39f753120ecb59486',1,'UserInterface::UserInterface()']]],
+  ['userinterface_2ecpp',['UserInterface.cpp',['../_user_interface_8cpp.html',1,'']]],
+  ['userinterface_2ehpp',['UserInterface.hpp',['../_user_interface_8hpp.html',1,'']]]
 ];

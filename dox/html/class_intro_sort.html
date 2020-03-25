@@ -60,6 +60,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_intro_sort-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -90,8 +91,11 @@ Collaboration diagram for IntroSort&lt; T &gt;:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a00b9d976feff85f748409a05c82e2b5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intro_sort.html#a00b9d976feff85f748409a05c82e2b5e">SortUp</a> (std::unique_ptr&lt; T[]&gt; &amp;array, std::size_t start, std::size_t end) override</td></tr>
-<tr class="memdesc:a00b9d976feff85f748409a05c82e2b5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sortowanie introspektywne - quicksort + mergesort.  <a href="#a00b9d976feff85f748409a05c82e2b5e">More...</a><br /></td></tr>
+<tr class="memdesc:a00b9d976feff85f748409a05c82e2b5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sortowanie introspektywne - quicksort + heapsort.  <a href="#a00b9d976feff85f748409a05c82e2b5e">More...</a><br /></td></tr>
 <tr class="separator:a00b9d976feff85f748409a05c82e2b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a793eed52e23f714e7e84af059ecc52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intro_sort.html#a5a793eed52e23f714e7e84af059ecc52">SortDown</a> (std::unique_ptr&lt; T[]&gt; &amp;array, std::size_t start, std::size_t end) override</td></tr>
+<tr class="memdesc:a5a793eed52e23f714e7e84af059ecc52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sortowanie malejace - niezaimplementowane, poniewaz nie bedzie wykorzystywane.  <a href="#a5a793eed52e23f714e7e84af059ecc52">More...</a><br /></td></tr>
+<tr class="separator:a5a793eed52e23f714e7e84af059ecc52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b7cfbd297dfdb5b93ae2d746423ce38"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intro_sort.html#a6b7cfbd297dfdb5b93ae2d746423ce38">IntroSort</a> ()=default</td></tr>
 <tr class="separator:a6b7cfbd297dfdb5b93ae2d746423ce38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a945484894ff4cc29b62d66c0fefdce1f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intro_sort.html#a945484894ff4cc29b62d66c0fefdce1f">~IntroSort</a> ()=default</td></tr>
@@ -113,10 +117,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af5965ee2e66b8f77eaa789f11bfc29de inherit pub_methods_class_sort"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sort.html#af5965ee2e66b8f77eaa789f11bfc29de">~Sort</a> ()=default</td></tr>
 <tr class="separator:af5965ee2e66b8f77eaa789f11bfc29de inherit pub_methods_class_sort"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a205f2d1992f445c8e86b2882af3e511b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intro_sort.html#a205f2d1992f445c8e86b2882af3e511b">IntrospectiveSort</a> (std::unique_ptr&lt; T[]&gt; &amp;array, std::size_t start, std::size_t end, std::size_t depth)</td></tr>
+<tr class="separator:a205f2d1992f445c8e86b2882af3e511b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a311ff2cbe2494984b0a278b0943c9188"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_merge_sort.html">MergeSort</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intro_sort.html#a311ff2cbe2494984b0a278b0943c9188">sort</a></td></tr>
-<tr class="separator:a311ff2cbe2494984b0a278b0943c9188"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42a9d546c7267be1b9baa9526d25bce9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_insertion_sort.html">InsertionSort</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intro_sort.html#a42a9d546c7267be1b9baa9526d25bce9">insert_sort</a></td></tr>
+<tr class="separator:a42a9d546c7267be1b9baa9526d25bce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa74876e062cadeef9b2344f2b859f290"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_heap_sort.html">HeapSort</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intro_sort.html#aa74876e062cadeef9b2344f2b859f290">heap_sort</a></td></tr>
+<tr class="separator:aa74876e062cadeef9b2344f2b859f290"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -130,7 +141,7 @@ Additional Inherited Members</h2></td></tr>
 class IntroSort&lt; T &gt;</h3>
 
 
-<p class="definition">Definition at line <a class="el" href="_intro_sort_8hpp_source.html#l00006">6</a> of file <a class="el" href="_intro_sort_8hpp_source.html">IntroSort.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_intro_sort_8hpp_source.html#l00010">10</a> of file <a class="el" href="_intro_sort_8hpp_source.html">IntroSort.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6b7cfbd297dfdb5b93ae2d746423ce38"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6b7cfbd297dfdb5b93ae2d746423ce38">&#9670;&nbsp;</a></span>IntroSort()</h2>
@@ -187,6 +198,106 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a205f2d1992f445c8e86b2882af3e511b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a205f2d1992f445c8e86b2882af3e511b">&#9670;&nbsp;</a></span>IntrospectiveSort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_intro_sort.html">IntroSort</a>&lt; T &gt;::IntrospectiveSort </td>
+          <td>(</td>
+          <td class="paramtype">std::unique_ptr&lt; T[]&gt; &amp;&#160;</td>
+          <td class="paramname"><em>array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>depth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_intro_sort_8hpp_source.html#l00016">16</a> of file <a class="el" href="_intro_sort_8hpp_source.html">IntroSort.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a5a793eed52e23f714e7e84af059ecc52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a793eed52e23f714e7e84af059ecc52">&#9670;&nbsp;</a></span>SortDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_intro_sort.html">IntroSort</a>&lt; T &gt;::SortDown </td>
+          <td>(</td>
+          <td class="paramtype">std::unique_ptr&lt; T[]&gt; &amp;&#160;</td>
+          <td class="paramname"><em>array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_sort.html#af3f18ca3e7f2184689d73c75b9630750">Sort&lt; T &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_intro_sort_8hpp_source.html#l00057">57</a> of file <a class="el" href="_intro_sort_8hpp_source.html">IntroSort.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a00b9d976feff85f748409a05c82e2b5e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a00b9d976feff85f748409a05c82e2b5e">&#9670;&nbsp;</a></span>SortUp()</h2>
 
@@ -239,13 +350,13 @@ template&lt;typename T &gt; </div>
 
 <p>Implements <a class="el" href="class_sort.html#a4be1925c2cec6b689e1ef21cf6da3f68">Sort&lt; T &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_intro_sort_8hpp_source.html#l00017">17</a> of file <a class="el" href="_intro_sort_8hpp_source.html">IntroSort.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_intro_sort_8hpp_source.html#l00046">46</a> of file <a class="el" href="_intro_sort_8hpp_source.html">IntroSort.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a311ff2cbe2494984b0a278b0943c9188"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a311ff2cbe2494984b0a278b0943c9188">&#9670;&nbsp;</a></span>sort</h2>
+<a id="aa74876e062cadeef9b2344f2b859f290"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa74876e062cadeef9b2344f2b859f290">&#9670;&nbsp;</a></span>heap_sort</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -256,7 +367,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_merge_sort.html">MergeSort</a>&lt;T&gt; <a class="el" href="class_intro_sort.html">IntroSort</a>&lt; T &gt;::sort</td>
+          <td class="memname"><a class="el" href="class_heap_sort.html">HeapSort</a>&lt;T&gt; <a class="el" href="class_intro_sort.html">IntroSort</a>&lt; T &gt;::heap_sort</td>
         </tr>
       </table>
   </td>
@@ -266,7 +377,33 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_intro_sort_8hpp_source.html#l00007">7</a> of file <a class="el" href="_intro_sort_8hpp_source.html">IntroSort.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_intro_sort_8hpp_source.html#l00012">12</a> of file <a class="el" href="_intro_sort_8hpp_source.html">IntroSort.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a42a9d546c7267be1b9baa9526d25bce9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42a9d546c7267be1b9baa9526d25bce9">&#9670;&nbsp;</a></span>insert_sort</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_insertion_sort.html">InsertionSort</a>&lt;T&gt; <a class="el" href="class_intro_sort.html">IntroSort</a>&lt; T &gt;::insert_sort</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_intro_sort_8hpp_source.html#l00011">11</a> of file <a class="el" href="_intro_sort_8hpp_source.html">IntroSort.hpp</a>.</p>
 
 </div>
 </div>
