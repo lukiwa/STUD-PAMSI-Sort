@@ -13,8 +13,8 @@ class IntroSort : public QuickSort<T> {
    private:
     void IntrospectiveSort(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end,
                            std::size_t depth) {
-        // unikam sortowania krotkich frafmentow rekursywnie
-        if ((start - end + 1) <= 16) {
+        // unikam rekurencyjnego sortowania malych tablic
+        if ((end - start + 1) <= 9) {
             insert_sort.SortUp(array, start, end);
             return;
         }

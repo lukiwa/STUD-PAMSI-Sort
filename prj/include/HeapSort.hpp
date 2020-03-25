@@ -42,14 +42,12 @@ class HeapSort : public Sort<T> {
 
    public:
     /**
-     * @brief Sortowanie rosnace
+     * @brief Sortowanie przez kopcowanie
      *
      * @param array tablica do posortowania
-     * @param start poczatek sortownia (indeks)
-     * @param end koniec sortowania (indeks)
+     * @param n wielkosc tej tablicy
      */
-    void SortUp(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end) override {
-        std::size_t n = end - start + 1;
+    void FullHeapSort(std::unique_ptr<T[]>& array, std::size_t n) {
         std::size_t heap_size = n;
         BuildMaxHeap(array, n);
 
@@ -57,6 +55,31 @@ class HeapSort : public Sort<T> {
             std::swap(array[0], array[i]);
             --heap_size;
             MaxHeapify(array, 0, heap_size);
+        }
+    }
+
+    /**
+     * @brief Czesciowe sortowanie przez kopcowanie
+     *
+     * @param array tablica ktorej fragment ma zostac posortowany
+     * @param start poczatkowy indeks od ktorego ma byc sortowanie
+     * @param end indeks koncowy
+     */
+    void SortUp(std::unique_ptr<T[]>& array, std::size_t start, std::size_t end) override {
+        // stworzenie tablicy pomocniczej do sortowania
+        auto sub_array = std::make_unique<int[]>(end - start + 1);
+        for (std::size_t i = 0; i < end - start + 1; ++i) {
+            for (std::size_t j = start; j < end; ++j) {
+                sub_array[i] = array[j];
+            }
+        }
+
+        // przeprowadzenie sortowania przez kopcowanie na wydzielonej tablicy
+        FullHeapSort(sub_array, end - start + 1);
+
+        // scalenie tablic
+        for (std::size_t i = start; i <= end; i++) {
+            array[i] = sub_array[i - start];
         }
     }
     /**

@@ -119,7 +119,7 @@ class ManageSorting {
      *
      */
     void RealiseDemoSorting() {
-        /* ---------------------------------- MERGE --------------------------------- */
+        /*
         auto array = generator.GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::MERGESORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
@@ -130,7 +130,6 @@ class ManageSorting {
         DisplayArray(array);
         std::cout << std::endl << std::endl;
 
-        /* ---------------------------------- QUICK --------------------------------- */
         array = generator.GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::QUICKSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
@@ -141,7 +140,6 @@ class ManageSorting {
         DisplayArray(array);
         std::cout << std::endl << std::endl;
 
-        /* --------------------------------- INSERT --------------------------------- */
         array = generator.GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::INSERTIONSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
@@ -152,7 +150,6 @@ class ManageSorting {
         DisplayArray(array);
         std::cout << std::endl << std::endl;
 
-        /* ---------------------------------- HEAP ---------------------------------- */
         array = generator.GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::HEAPSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
@@ -162,9 +159,9 @@ class ManageSorting {
         std::cout << std::endl << "Tablica po sortowaniu: ";
         DisplayArray(array);
         std::cout << std::endl << std::endl;
-
+*/
         /* --------------------------------- INSERT --------------------------------- */
-        array = generator.GenerateDemoArray();
+        auto array = generator.GenerateRandomArray(100);
         SetSortingAlgorithm(SortingAlgorithm::INTROSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
                   << "Tablica przed sortowaniem: ";
@@ -172,7 +169,9 @@ class ManageSorting {
         sorting_algorithm->SortUp(std::get<1>(array), 0, std::get<0>(array) - 1);
         std::cout << std::endl << "Tablica po sortowaniu: ";
         DisplayArray(array);
-        std::cout << std::endl;
+        if (SortingCheck(array)) {
+            std::cout << "CHODZI" << std::endl;
+        }
     }
 
     ManageSorting() {
