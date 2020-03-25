@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['addsize',['AddSize',['../class_heap_sort.html#af597ad8358d91c2a368995e0396210e1',1,'HeapSort']]],
   ['algorithm_5fname',['algorithm_name',['../class_manage_sorting.html#a03407fe92362d7ac20f4f2252b69d4e5',1,'ManageSorting::algorithm_name()'],['../class_user_interface.html#ad70f11135a2ac71258ecf0da336773f4',1,'UserInterface::algorithm_name()']]],
   ['already_5fsorted',['already_sorted',['../class_user_interface.html#a87005d4be0dcd39814f24a67bdf10c94',1,'UserInterface']]],
   ['already_5fsorted_5fway',['already_sorted_way',['../class_user_interface.html#a52639e792af4d3995dae98c234d658e0',1,'UserInterface']]],

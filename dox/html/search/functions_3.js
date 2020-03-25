@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['fullheapsort',['FullHeapSort',['../class_heap_sort.html#aefadc99bf8570915cfa4654ddf697f9c',1,'HeapSort']]]
+  ['displayarray',['DisplayArray',['../class_manage_sorting.html#a81cd54836c56d5eab629662f9282b86c',1,'ManageSorting']]],
+  ['displayhelp',['DisplayHelp',['../class_user_interface.html#af59c26594c1f700e74c979f0c4d2b91f',1,'UserInterface']]]
 ];
