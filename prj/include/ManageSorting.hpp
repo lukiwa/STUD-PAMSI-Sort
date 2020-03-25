@@ -164,7 +164,7 @@ class ManageSorting {
         std::cout << std::endl << std::endl;
 
         /* --------------------------------- INSERT --------------------------------- */
-        auto array = generator.GenerateRandomArray(100);
+        array = generator.GenerateDemoArray();
         SetSortingAlgorithm(SortingAlgorithm::INTROSORT);
         std::cout << "Algorytm sortowania: " << algorithm_name << std::endl
                   << "Tablica przed sortowaniem: ";
