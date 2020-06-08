@@ -1,2 +1,2 @@
 # STUD-PAMSI-Sort
-Projekt na PAMSI, porównanie działania algorytmów sortowania
+University project - comparison between three sorting algorithms
